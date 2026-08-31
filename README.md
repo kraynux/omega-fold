@@ -1,11 +1,17 @@
+<div align="center">
+  <img src="assets/omega-fold.png" alt="Omega-Fold" width="160">
+</div>
+
 #  OMEGA-FOLD
 
-**Analyseur de structure de site/repertoire (local et distant)**
+**Analyseur de structure de site/répertoire (local et distant)**
 
 Élaboré par kraynux pour Omega-server
 [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
-Page officiel :
-[OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/)
+
+Page officiel : [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/)  
+Aperçus : [SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
