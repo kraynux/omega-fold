@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMEGA-FOLD — Rapport de scan {{ scan.id }}</title>
+<style>
+  /* Couleurs pilotees par le theme d'export choisi (omega_lib.theme.policies
+     ::EXPORT_PALETTES, meme catalogue que toute la suite, D-005/D-008).
+     Mise en page reprise du template d'omega-deep (container/grid/badges,
+     police terminal monospace) pour une presentation coherente dans toute
+     la suite omega-. */
+  * { box-sizing: border-box; }
+  body {
+    font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    line-height: 1.6;
+    color: {{ palette.foreground }};
+    background: {{ palette.background }};
+    padding: 20px;
+    margin: 0;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: {{ palette.surface }};
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: {{ palette.foreground }};
+    border-bottom: 3px solid {{ palette.accent }};
+    padding-bottom: 10px;
+    margin: 0 0 20px;
+  }
+  h2 {
+    font-size: 1.1rem;
+    color: {{ palette.foreground }};
+    border-left: 4px solid {{ palette.accent }};
+    padding-left: 10px;
+    margin: 30px 0 15px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .meta-item { background: {{ palette.panel }}; padding: 10px; border-radius: 4px; }
+  .meta-item strong { color: {{ palette.secondary }}; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .stat { background: {{ palette.panel }}; padding: 12px; border-radius: 4px; text-align: center; }
+  .stat-value { font-size: 1.6rem; font-weight: bold; }
+  .stat-value.broken { color: {{ palette.error }}; }
+  .box {
+    background: {{ palette.panel }};
+    border: 1px solid {{ palette.accent }};
+    border-radius: 8px;
+    padding: 8px 20px 20px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  .chart-box svg { display: block; margin: 10px auto 0; max-width: 100%; height: auto; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid {{ palette.surface }}; }
+  th { color: {{ palette.secondary }}; font-weight: 600; }
+  .stat.emphasis { background: {{ palette.accent }}; }
+  .stat.emphasis .stat-value, .stat.emphasis div { color: {{ palette.background }}; }
+  /* Arborescence multi-niveaux : un <details> par repertoire (voir
+     tree_html.py) — seule la racine est ouverte par defaut, chaque
+     sous-repertoire se developpe independamment. Le contenu d'un
+     <details> ferme n'est pas mis en page par le navigateur : reste
+     utilisable meme pour un site de plusieurs dizaines de milliers de
+     fichiers, sans JavaScript. */
+  .tree-folder { margin: 0.2rem 0; padding-left: 0.2rem; border-left: 2px solid {{ palette.surface }}; }
+  .tree-folder > summary { cursor: pointer; list-style: none; }
+  .tree-folder > summary::-webkit-details-marker { display: none; }
+  .tree-folder-meta { color: {{ palette.secondary }}; font-size: 0.8em; }
+  .tree-folder-body { margin-left: 1.1rem; margin-top: 0.2rem; }
+  .tree-file { margin: 0.1rem 0 0 1.3rem; }
+  .tree-file-size { color: {{ palette.secondary }}; font-size: 0.85em; }
+  details.box > summary {
+    cursor: pointer;
+    color: {{ palette.secondary }};
+    font-weight: 600;
+    padding: 4px 0;
+  }
+  details.box[open] > summary { margin-bottom: 10px; }
+  details.nested { margin-top: 10px; }
+  details.nested > summary { cursor: pointer; color: {{ palette.secondary }}; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: {{ palette.background }};
+    background: {{ palette.error }};
+  }
+  .warning-banner {
+    background: {{ palette.warning }};
+    color: {{ palette.background }};
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid {{ palette.panel }};
+    text-align: center;
+    color: {{ palette.secondary }};
+    font-size: 0.75rem;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>OMEGA-FOLD — Rapport de scan</h1>
+
+    {% if scan.status == "completed_truncated" %}
+    <div class="warning-banner">
+      ⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Relancer avec --max-pages plus élevé pour une couverture complète.
+    </div>
+    {% endif %}
+
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Cible :</strong> {{ scan.target }}</div>
+      <div class="meta-item"><strong>Type :</strong> {{ scan.target_type.value }}</div>
+      <div class="meta-item"><strong>Date :</strong> {{ scan.created_at }}</div>
+      <div class="meta-item"><strong>Mode :</strong> {{ scan.scan_mode.value }}</div>
+      <div class="meta-item"><strong>Statut :</strong> {{ scan.status }}</div>
+      <div class="meta-item"><strong>Scan ID :</strong> {{ scan.id }}</div>
+    </div>
+
+    <div class="stats-grid">
+      <!-- Taille totale en premier : c'est l'information la plus attendue d'un
+           rapport de scan (objectif premier, avant tout le reste). -->
+      <div class="stat emphasis"><div class="stat-value">{{ scan.total_size | format_size }}</div><div>Taille totale</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.total_files }}</div><div>Fichier(s)</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.total_dirs }}</div><div>Repertoire(s)</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.max_depth }}</div><div>Profondeur max</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.total_links }}</div><div>Lien(s)</div></div>
+      <div class="stat"><div class="stat-value broken">{{ scan.broken_links }}</div><div>Lien(s) casse(s)</div></div>
+    </div>
+
+    {% if chart_svg %}
+    <h2>Repartition par famille</h2>
+    <div class="box chart-box">{{ chart_svg | safe }}</div>
+    {% endif %}
+
+    {% if result.extension_stats %}
+    <h2>Extensions</h2>
+    <div class="box">
+      <table>
+        <thead><tr><th>Extension</th><th>Fichiers</th><th>Taille</th><th>%</th></tr></thead>
+        <tbody>
+          {% for ext in result.extension_stats %}
+          <tr>
+            <td>{{ ext.extension or "(sans extension)" }}</td>
+            <td>{{ ext.files_count }}</td>
+            <td>{{ ext.total_size | format_size }}</td>
+            <td>{{ "%.1f"|format(ext.percentage_of_total) }}%</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    {% if result.top_files_by_size %}
+    <h2>Plus gros fichiers</h2>
+    <div class="box">
+      <table>
+        <thead><tr><th>Chemin</th><th>Taille</th></tr></thead>
+        <tbody>
+          {% for file in result.top_files_by_size %}
+          <tr><td>{{ file.path }}</td><td>{{ file.size | format_size }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    {% if result.external_domains %}
+    <h2>Domaines externes lies ({{ result.external_domains|length }})</h2>
+    <div class="box">
+      <table>
+        <thead><tr><th>Domaine</th><th>Lien(s)</th></tr></thead>
+        <tbody>
+          {% for domain in result.external_domains[:20] %}
+          <tr><td>{{ domain.domain }}</td><td>{{ domain.links_count }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if result.external_domains|length > 20 %}
+      <details class="nested">
+        <summary>Voir les {{ result.external_domains|length - 20 }} domaine(s) restant(s)</summary>
+        <table>
+          <tbody>
+            {% for domain in result.external_domains[20:] %}
+            <tr><td>{{ domain.domain }}</td><td>{{ domain.links_count }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </details>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if tree_html %}
+    <h2>Arborescence ({{ scan.total_files }} fichier(s), {{ scan.total_dirs }} repertoire(s))</h2>
+    <div class="box">{{ tree_html | safe }}</div>
+    {% endif %}
+
+    {% if result.broken_links %}
+    <h2>Liens casses</h2>
+    <details class="box">
+      <summary>Afficher les {{ result.broken_links|length }} lien(s) casse(s)</summary>
+      <table>
+        <thead><tr><th>URL</th><th>Trouve dans</th></tr></thead>
+        <tbody>
+          {% for link in result.broken_links %}
+          <tr><td>{{ link.url }}</td><td>{{ link.source_file }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </details>
+    {% endif %}
+
+    <footer>Rapport genere par <strong>OMEGA-FOLD</strong></footer>
+  </div>
+</body>
+</html>
