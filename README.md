@@ -1,12 +1,13 @@
+<!-- Copyright (c) 2026 kraynux - kraynux@proton.me - Licence MIT (voir fichier LICENSE) -->
 <div align="center">
   <img src="docs/assets/omega-fold.png" alt="Omega-Fold" width="256">
 </div>
 
-#  OMEGA-FOLD
+#  OMEGA-FOLD
 
 **Analyseur de structure de site/répertoire (local et distant)**
 
-Élaboré par kraynux pour Omega-server
+> Élaboré par **kraynux** pour **Omega-server** 
 [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
 
 Page officiel : [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/) &nbsp; Aperçus : [SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
@@ -19,7 +20,7 @@ Page officiel : [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/) 
 
 ---
 
-Omega-fold est un outil TUI + CLI qui analyse la structure d'un répertoire local ou d'un site distant (crawl HTTP borné par des garde-fous) : arborescence complète, statistiques par extension/famille de fichier, cartographie des liens (internes/externes, tous types confondus), détection des liens cassés. Cinquième outil de la suite `omega-` (après `omega-scan`, `omega-stress`, `omega-check` et `omega-deep`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
+**Omega-fold** est un outil TUI + CLI qui analyse la structure d'un répertoire local ou d'un site distant (crawl HTTP borné par des garde-fous) : arborescence complète, statistiques par extension/famille de fichier, cartographie des liens (internes/externes, tous types confondus), détection des liens cassés. Cinquième outil de la suite `omega-` (après `omega-scan`, `omega-stress`, `omega-check` et `omega-deep`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
 
 ## 1. Vision et périmètre
 
