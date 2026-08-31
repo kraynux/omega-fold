@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/omega-fold.png" alt="Omega-Fold" width="160">
+  <img src="docs/assets/omega-fold.png" alt="Omega-Fold" width="160">
 </div>
 
 #  OMEGA-FOLD
