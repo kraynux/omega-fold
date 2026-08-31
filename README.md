@@ -9,8 +9,7 @@
 Élaboré par kraynux pour Omega-server
 [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
 
-Page officiel : [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/)  
-Aperçus : [SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
+Page officiel : [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/) &nbsp; Aperçus : [SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
