@@ -8,18 +8,19 @@ from textual.widgets import DataTable
 
 from omega_fold.domain.stats.formatting import format_size
 from omega_fold.domain.stats.models import ExtensionStats
+from omega_fold.shared.i18n import _
 
 
 class ExtensionStatsTable(DataTable[str]):
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Extension", "Fichiers", "Taille", "%")
+        self.add_columns(_("Extension"), _("Fichiers"), _("Taille"), "%")
 
     def set_extension_stats(self, stats: list[ExtensionStats]) -> None:
         self.clear()
         for entry in stats:
             self.add_row(
-                entry.extension or "(sans extension)",
+                entry.extension or _("(sans extension)"),
                 str(entry.files_count),
                 format_size(entry.total_size),
                 f"{entry.percentage_of_total:.1f}%",

@@ -5,12 +5,13 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_fold.domain.links.models import LinkEntry
+from omega_fold.shared.i18n import _
 
 
 class BrokenLinksTable(DataTable[str]):
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("URL", "Trouve dans")
+        self.add_columns(_("URL"), _("Trouvé dans"))
 
     def set_links(self, links: list[LinkEntry]) -> None:
         self.clear()

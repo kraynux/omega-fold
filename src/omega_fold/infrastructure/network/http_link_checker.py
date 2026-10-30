@@ -11,6 +11,7 @@ from __future__ import annotations
 import httpx
 
 from omega_fold.core.enums import LinkStatus
+from omega_fold.shared.i18n import _
 
 _METHOD_NOT_ALLOWED = 405
 _NOT_IMPLEMENTED = 501
@@ -26,7 +27,7 @@ class HttpLinkChecker:
                 if response.status_code in (_METHOD_NOT_ALLOWED, _NOT_IMPLEMENTED):
                     response = client.get(url)
         except httpx.TimeoutException:
-            return LinkStatus.TIMEOUT, None, "delai depasse"
+            return LinkStatus.TIMEOUT, None, _("délai dépassé")
         except httpx.HTTPError as exc:
             return LinkStatus.ERROR, None, str(exc)
         except httpx.InvalidURL as exc:

@@ -18,6 +18,8 @@ from __future__ import annotations
 from textual.containers import Container, Horizontal, Middle
 from textual.widgets import Button, LoadingIndicator, RichLog, Static
 
+from omega_fold.shared.i18n import _
+
 
 class ProgressPanel(Middle):
     """Ecran d'attente pendant l'execution d'un scan."""
@@ -28,7 +30,7 @@ class ProgressPanel(Middle):
             LoadingIndicator(id="progress-spinner"),
             RichLog(classes="omega-progress-log", max_lines=200, auto_scroll=True, markup=False),
             Horizontal(
-                Container(Button("Annuler", id="progress-cancel", variant="error"), classes="omega-btn-frame"),
+                Container(Button(_("Annuler"), id="progress-cancel", variant="error"), classes="omega-btn-frame"),
                 classes="omega-actions",
                 id="progress-actions",
             ),
@@ -43,9 +45,9 @@ class ProgressPanel(Middle):
         explicite, ecrit l'erreur dans le journal (reste visible/
         scrollable, contrairement a une notification qui disparait toute
         seule)."""
-        self.query_one("#progress-message", Static).update("Scan echoue")
+        self.query_one("#progress-message", Static).update(_("Scan échoué"))
         self.query_one("#progress-spinner", LoadingIndicator).display = False
-        self.write_line(f"ERREUR : {message}")
+        self.write_line(_("ERREUR : {message}").format(message=message))
         actions = self.query_one("#progress-actions")
         actions.remove_children()
-        actions.mount(Container(Button("Retour", id="progress-back", variant="primary"), classes="omega-btn-frame"))
+        actions.mount(Container(Button(_("Retour"), id="progress-back", variant="primary"), classes="omega-btn-frame"))

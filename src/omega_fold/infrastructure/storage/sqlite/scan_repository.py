@@ -38,6 +38,7 @@ from omega_fold.domain.stats.service import (
 from omega_fold.domain.tree.models import FileEntry
 from omega_fold.domain.tree.service import build_tree, flatten_files
 from omega_fold.infrastructure.exceptions import StorageError
+from omega_fold.shared.i18n import _
 
 
 class SqliteScanRepository:
@@ -77,7 +78,7 @@ class SqliteScanRepository:
             )
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde du scan {scan.id!r}") from exc
+            raise StorageError(_("échec de sauvegarde du scan {id!r}").format(id=scan.id)) from exc
 
     def get(self, scan_id: str) -> Scan | None:
         row = self._connection.execute("SELECT * FROM scans WHERE id = ?", (scan_id,)).fetchone()
@@ -136,7 +137,7 @@ class SqliteScanRepository:
 
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde du resultat pour le scan {scan_id!r}") from exc
+            raise StorageError(_("échec de sauvegarde du résultat pour le scan {scan_id!r}").format(scan_id=scan_id)) from exc
 
     @staticmethod
     def _insert_file(cursor: sqlite3.Cursor, scan_id: str, file: FileEntry) -> None:

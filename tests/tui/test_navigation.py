@@ -246,7 +246,7 @@ async def test_scan_setup_shows_explicit_field_labels(app: OmegaFoldApp) -> None
         await pilot.pause()
 
         label_texts = {str(s.render()) for s in app.screen.query(".omega-field-label").results(Static)}
-        for expected in ("Type", "Mode", "Profondeur max", "Pages max", "Delai entre requetes (ms)", "User-Agent"):
+        for expected in ("Type", "Mode", "Profondeur max", "Pages max", "Délai entre requêtes (ms)", "User-Agent"):
             assert expected in label_texts
     app._test_container.close()  # type: ignore[attr-defined]
 

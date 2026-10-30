@@ -1,0 +1,423 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fold\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fold/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fold"
+msgstr "omega-fold 설치를 포함합니다"
+
+#: src/omega_fold/application/commands/run_scan.py:68
+#, python-brace-format
+msgid "Parcours de {root_path}..."
+msgstr "{root_path} 탐색 중..."
+
+#: src/omega_fold/application/commands/run_scan.py:72
+#, python-brace-format
+msgid "{count} fichier(s) trouvé(s), extraction des liens..."
+msgstr "파일 {count}개 발견, 링크 추출 중..."
+
+#: src/omega_fold/application/commands/run_scan.py:122
+#, python-brace-format
+msgid "Scan terminé : {count} fichier(s), {count2} lien(s)."
+msgstr "스캔 완료: 파일 {count}개, 링크 {count2}개."
+
+#: src/omega_fold/application/commands/run_scan.py:163
+#, python-brace-format
+msgid "Crawl de {base_url}..."
+msgstr "{base_url} 크롤링 중..."
+
+#: src/omega_fold/application/commands/run_scan.py:184
+#, python-brace-format
+msgid "Limite de {max_pages} page(s) atteinte, crawl arrêté (site probablement plus grand)."
+msgstr "{max_pages}페이지 한도에 도달하여 크롤링을 중지했습니다(사이트가 더 클 수 있음)."
+
+#: src/omega_fold/application/commands/run_scan.py:198
+#, python-brace-format
+msgid "Échec de récupération, page ignorée : {url} ({fetch_error})"
+msgstr "가져오기 실패, 페이지 건너뜀: {url} ({fetch_error})"
+
+#: src/omega_fold/application/commands/run_scan.py:201
+#, python-brace-format
+msgid "Bloqué par robots.txt : {url}"
+msgstr "robots.txt에 의해 차단됨: {url}"
+
+#: src/omega_fold/application/commands/run_scan.py:213
+#, python-brace-format
+msgid "Redirection hors domaine ignorée : {url} -> {final_url}"
+msgstr "도메인 밖으로의 리디렉션 무시: {url} -> {final_url}"
+
+#: src/omega_fold/application/commands/run_scan.py:216
+#, python-brace-format
+msgid "Page visitée : {url} ({status_code})"
+msgstr "방문한 페이지: {url} ({status_code})"
+
+#: src/omega_fold/application/commands/run_scan.py:317
+#, python-brace-format
+msgid "Crawl terminé : {count} page(s), {count2} lien(s)."
+msgstr "크롤링 완료: 페이지 {count}개, 링크 {count2}개."
+
+#: src/omega_fold/infrastructure/filesystem/local_fs_walker.py:25
+#, python-brace-format
+msgid "'{root_path}' n'est pas un répertoire lisible"
+msgstr "'{root_path}'은(는) 읽을 수 있는 디렉터리가 아닙니다"
+
+#: src/omega_fold/infrastructure/network/http_link_checker.py:30
+msgid "délai dépassé"
+msgstr "시간 초과"
+
+#: src/omega_fold/infrastructure/storage/sqlite/scan_repository.py:140
+msgid "échec de sauvegarde du résultat pour le scan {scan_id!r}"
+msgstr "스캔 {scan_id!r}의 결과 저장 실패"
+
+#: src/omega_fold/interfaces/tui/app.py:38
+msgid " OMEGA-FOLD"
+msgstr " OMEGA-FOLD"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
+msgstr "대상(로컬 디렉터리 또는 URL), 유형(로컬/원격), 모드(정적 또는 동적)를 입력하고, 원격 스캔이라면 크롤링 안전장치(최대 깊이, 페이지 수, 요청 간 지연, User-Agent, robots.txt 준수)도 입력하세요."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
+msgstr "지난 모든 스캔 목록: 전체 상세(트리, 파일 계열, 깨진 링크), 또는 같은 대상에서 스캔 다시 실행(다시 실행하는 원격 스캔은 원래 스캔이 아닌 기본 안전장치를 사용합니다 — 저장되지 않기 때문)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
+msgstr "스캔 상세에서: JSON(전체 구조), 텍스트(간결한 보고서), HTML(계열별 히스토그램이 포함된 시각적 보고서, 내보내기 테마는 인터페이스 테마와 별개)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
+msgstr "Omega-fold는 항상 켜져 있는 안전장치(깊이, 페이지 수, 지연, 같은 도메인) 아래에서 로컬 디렉터리를 분석하거나 원격 사이트를 크롤링합니다: 외부 링크는 동적 모드에서만 HTTP로 검증하고, 내부 링크는 항상 실제로 찾은 파일/페이지와 대조해 검증하며, 추측으로 판단하지 않습니다."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+msgid "Familles de fichiers"
+msgstr "파일 계열"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+msgid "Extensions"
+msgstr "확장자"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+msgid "Famille"
+msgstr "계열"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+msgid "(le reste)"
+msgstr "(나머지)"
+
+#: src/omega_fold/interfaces/tui/screens/quit_confirm.py:22
+msgid "QUITTER OMEGA-FOLD ?"
+msgstr "OMEGA-FOLD를 종료하시겠습니까?"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:136
+#, python-format
+msgid "Scan échoué (%s)"
+msgstr "스캔 실패 (%s)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:162
+msgid "Annulation"
+msgstr "취소 중"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:162
+msgid "Scan annulé."
+msgstr "스캔이 취소되었습니다."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:43
+msgid "ex. /var/www/monsite, https://example.org"
+msgstr "예) /var/www/mysite, https://example.org"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:49
+msgid "Distant (crawl HTTP)"
+msgstr "원격 (HTTP 크롤링)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:49
+msgid "Local (répertoire)"
+msgstr "로컬 (디렉터리)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:54
+msgid "Mode"
+msgstr "모드"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:56
+msgid "Dynamique (vérifié par HTTP)"
+msgstr "동적 (HTTP로 검증)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:56
+msgid "Statique"
+msgstr "정적"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:62
+msgid "Garde-fous de crawl distant (ignorés pour un scan local)"
+msgstr "원격 크롤링 안전장치 (로컬 스캔에서는 무시)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:69
+msgid "Pages max"
+msgstr "최대 페이지"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:73
+msgid "Délai entre requêtes (ms)"
+msgstr "요청 간 지연 (ms)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:79
+msgid "Respecter robots.txt"
+msgstr "robots.txt 준수"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:131
+msgid "Profondeur/pages/délai : entiers attendus."
+msgstr "깊이/페이지/지연: 정수를 입력해야 합니다."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:134
+msgid "Profondeur >= 0, pages >= 1 et délai >= 0 attendus."
+msgstr "깊이 >= 0, 페이지 >= 1, 지연 >= 0이어야 합니다."
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:40
+#, python-brace-format
+msgid "Cible : {target} ({value}) — mode {value2} — statut {status}"
+msgstr "대상: {target} ({value}) — 모드 {value2} — 상태 {status}"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:44
+#, python-brace-format
+msgid "[b]{value}[/b] — {total_files} fichier(s) — {total_dirs} répertoire(s) — profondeur max {max_depth} — {total_links} lien(s) ({broken_links} cassé(s))"
+msgstr "[b]{value}[/b] — 파일 {total_files}개 — 디렉터리 {total_dirs}개 — 최대 깊이 {max_depth} — 링크 {total_links}개 (깨진 링크 {broken_links}개)"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:50
+msgid "[$warning]⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Rejouer avec un --max-pages plus élevé pour une couverture complète.[/]"
+msgstr "[$warning]⚠ --max-pages 한도에 도달했습니다: 사이트에는 여기 보고된 것보다 더 많은 페이지가 있을 수 있습니다. 전체를 다루려면 더 큰 --max-pages로 다시 실행하세요.[/]"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:56 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:156
+msgid "Répartition par famille"
+msgstr "계열별 분포"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:59
+msgid "Répartition par extension"
+msgstr "확장자별 분포"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:62
+msgid "Arborescence"
+msgstr "트리"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:65 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:225
+msgid "Liens cassés"
+msgstr "깨진 링크"
+
+#: src/omega_fold/interfaces/tui/widgets/broken_links_table.py:14 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:229
+msgid "Trouvé dans"
+msgstr "발견 위치"
+
+#: src/omega_fold/interfaces/tui/widgets/broken_links_table.py:14
+msgid "URL"
+msgstr "URL"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164
+msgid "Extension"
+msgstr "확장자"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15 src/omega_fold/interfaces/tui/widgets/history_table.py:18 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164
+msgid "Fichiers"
+msgstr "파일"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15 src/omega_fold/interfaces/tui/widgets/history_table.py:18 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:183
+msgid "Taille"
+msgstr "크기"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:100 src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:23 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:168
+msgid "(sans extension)"
+msgstr "(확장자 없음)"
+
+#: src/omega_fold/interfaces/tui/widgets/history_table.py:18
+msgid "Liens"
+msgstr "링크"
+
+#: src/omega_fold/interfaces/tui/widgets/progress_panel.py:50
+#, python-brace-format
+msgid "ERREUR : {message}"
+msgstr "오류: {message}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:53
+msgid "=== OMEGA-FOLD — Rapport de scan ==="
+msgstr "=== OMEGA-FOLD — 스캔 보고서 ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:54
+#, python-brace-format
+msgid "Scan ID       : {id}"
+msgstr "스캔 ID       : {id}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:55
+#, python-brace-format
+msgid "Cible         : {target}"
+msgstr "대상          : {target}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:56
+#, python-brace-format
+msgid "Type          : {value}"
+msgstr "유형          : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:57
+#, python-brace-format
+msgid "Date          : {created_at}"
+msgstr "날짜          : {created_at}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:58
+#, python-brace-format
+msgid "Mode          : {value}"
+msgstr "모드          : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:59
+#, python-brace-format
+msgid "Statut        : {status}"
+msgstr "상태          : {status}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:63
+msgid "ATTENTION : limite --max-pages atteinte, le site a probablement plus de"
+msgstr "주의: --max-pages 한도에 도달했습니다. 사이트에는 여기 보고된 것보다"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:64
+msgid "pages que ce qui est rapporté ici — relancer avec --max-pages plus élevé."
+msgstr "더 많은 페이지가 있을 수 있습니다 — 더 큰 --max-pages로 다시 실행하세요."
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:74
+#, python-brace-format
+msgid "Taille totale : {value}"
+msgstr "전체 크기     : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:75
+#, python-brace-format
+msgid "Fichiers      : {total_files}"
+msgstr "파일          : {total_files}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:76
+#, python-brace-format
+msgid "Répertoires   : {total_dirs}"
+msgstr "디렉터리      : {total_dirs}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:77
+#, python-brace-format
+msgid "Profondeur max: {max_depth}"
+msgstr "최대 깊이     : {max_depth}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:79
+#, python-brace-format
+msgid "Liens totaux  : {total_links}"
+msgstr "전체 링크     : {total_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:80
+#, python-brace-format
+msgid "Liens internes: {internal_links}"
+msgstr "내부 링크     : {internal_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:81
+#, python-brace-format
+msgid "Liens externes: {external_links}"
+msgstr "외부 링크     : {external_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:82
+#, python-brace-format
+msgid "Liens cassés  : {broken_links}"
+msgstr "깨진 링크     : {broken_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:87
+msgid "=== Répartition par famille ==="
+msgstr "=== 계열별 분포 ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:90
+#, python-brace-format
+msgid "  {family:<12} {files_count:>5} fichier(s)  {value:>10}  ({percentage_of_total:.1f}%)"
+msgstr "  {family:<12} {files_count:>5}개 파일  {value:>10}  ({percentage_of_total:.1f}%)"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:96
+msgid "=== Répartition par extension ==="
+msgstr "=== 확장자별 분포 ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:99
+#, python-brace-format
+msgid "  {value:<16} {files_count:>5} fichier(s)  {value2:>10}  ({percentage_of_total:.1f}%)"
+msgstr "  {value:<16} {files_count:>5}개 파일  {value2:>10}  ({percentage_of_total:.1f}%)"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:105
+msgid "=== Arborescence ==="
+msgstr "=== 트리 ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:110
+msgid "=== Liens cassés ==="
+msgstr "=== 깨진 링크 ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:112
+#, python-brace-format
+msgid "  {url}  (trouvé dans {source_file})"
+msgstr "  {url}  ({source_file}에서 발견)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-FOLD — Rapport de scan {id}"
+msgstr "OMEGA-FOLD — 스캔 보고서 {id}"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:127
+msgid "OMEGA-FOLD — Rapport de scan"
+msgstr "OMEGA-FOLD — 스캔 보고서"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:131
+msgid "⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Relancer avec --max-pages plus élevé pour une couverture complète."
+msgstr "⚠ --max-pages 한도에 도달했습니다: 사이트에는 여기 보고된 것보다 더 많은 페이지가 있을 수 있습니다. 전체를 다루려면 더 큰 --max-pages로 다시 실행하세요."
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:137
+msgid "Type :"
+msgstr "유형:"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:147
+msgid "Taille totale"
+msgstr "전체 크기"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:148
+msgid "Fichier(s)"
+msgstr "파일"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:149
+msgid "Répertoire(s)"
+msgstr "디렉터리"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:151 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:197
+msgid "Lien(s)"
+msgstr "링크"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:152
+msgid "Lien(s) cassé(s)"
+msgstr "깨진 링크"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:180
+msgid "Plus gros fichiers"
+msgstr "가장 큰 파일"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:183
+msgid "Chemin"
+msgstr "경로"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:194
+#, python-brace-format
+msgid "Domaines externes liés ({external_domains})"
+msgstr "연결된 외부 도메인 ({external_domains})"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:197
+msgid "Domaine"
+msgstr "도메인"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:206
+#, python-brace-format
+msgid "Voir les {external_domains} domaine(s) restant(s)"
+msgstr "나머지 도메인 {external_domains}개 보기"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:220
+#, python-brace-format
+msgid "Arborescence ({total_files} fichier(s), {total_dirs} répertoire(s))"
+msgstr "트리 (파일 {total_files}개, 디렉터리 {total_dirs}개)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:227
+#, python-brace-format
+msgid "Afficher les {broken_links} lien(s) cassé(s)"
+msgstr "깨진 링크 {broken_links}개 표시"

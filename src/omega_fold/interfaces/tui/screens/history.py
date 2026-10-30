@@ -24,6 +24,7 @@ from omega_fold.domain.scans.models import Scan
 from omega_fold.interfaces.tui.screens._base import OmegaScreen
 from omega_fold.interfaces.tui.screens.export_dialog import ExportDialogScreen
 from omega_fold.interfaces.tui.widgets.history_table import HistoryTable
+from omega_fold.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fold.app.dependency_container import DependencyContainer
@@ -44,18 +45,18 @@ class HistoryScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-panel"):
-            yield Static("HISTORIQUE", classes="omega-title")
-            yield Input(placeholder="Filtrer par cible...", id="target-filter")
+            yield Static(_("HISTORIQUE"), classes="omega-title")
+            yield Input(placeholder=_("Filtrer par cible..."), id="target-filter")
             yield HistoryTable(id="history-table")
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Voir le detail", id="view")
+                    yield Button(_("Voir le détail"), id="view")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Exporter", id="export")
+                    yield Button(_("Exporter"), id="export")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Rejouer", id="replay")
+                    yield Button(_("Rejouer"), id="replay")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -87,7 +88,7 @@ class HistoryScreen(OmegaScreen):
             self.dismiss()
             return
         if self._selected_scan_id is None:
-            self.app.notify("Selectionnez d'abord une ligne.", severity="warning")
+            self.app.notify(_("Sélectionnez d'abord une ligne."), severity="warning")
             return
 
         if event.button.id == "view":
@@ -110,7 +111,7 @@ class HistoryScreen(OmegaScreen):
         enregistre)."""
         scan = self._scans_by_id.get(scan_id)
         if scan is None:
-            self.app.notify("Scan introuvable.", severity="error")
+            self.app.notify(_("Scan introuvable."), severity="error")
             return
         self.app.push_screen(
             ExportDialogScreen(container=self._container, scan=scan, active_theme=self.app.theme)
@@ -121,7 +122,7 @@ class HistoryScreen(OmegaScreen):
 
         scan = self._scans_by_id.get(scan_id)
         if scan is None:
-            self.app.notify("Scan introuvable.", severity="error")
+            self.app.notify(_("Scan introuvable."), severity="error")
             return
         self.app.push_screen(
             ScanProgressScreen(

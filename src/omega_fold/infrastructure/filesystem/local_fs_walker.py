@@ -13,6 +13,7 @@ from omega_fold.domain.stats.policies import classify_family, is_binary_mime
 from omega_fold.domain.tree.models import DirEntry, FileEntry
 from omega_fold.domain.tree.service import build_tree
 from omega_fold.infrastructure.filesystem.mime_detector import detect_mime_type
+from omega_fold.shared.i18n import _
 
 
 class LocalFsWalker:
@@ -21,7 +22,7 @@ class LocalFsWalker:
     def read_tree(self, root_path: str) -> DirEntry:
         root_path = os.path.abspath(root_path)
         if not os.path.isdir(root_path):
-            raise NotADirectoryError(f"'{root_path}' n'est pas un repertoire lisible")
+            raise NotADirectoryError(_("'{root_path}' n'est pas un répertoire lisible").format(root_path=root_path))
 
         root_depth = root_path.rstrip("/").count("/")
         files: list[FileEntry] = []

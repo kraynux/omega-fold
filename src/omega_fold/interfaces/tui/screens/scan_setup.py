@@ -16,6 +16,7 @@ from textual.widgets import Button, Footer, Header, Input, Select, Static, Switc
 from omega_fold.core.enums import ScanMode, ScanTargetType
 from omega_fold.interfaces.tui.screens._base import OmegaScreen
 from omega_fold.interfaces.tui.screens.scan_progress import ScanProgressScreen
+from omega_fold.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fold.app.dependency_container import DependencyContainer
@@ -36,53 +37,53 @@ class ScanSetupScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-form-panel"):
-            yield Static("SCANNER UNE CIBLE", classes="omega-title")
+            yield Static(_("SCANNER UNE CIBLE"), classes="omega-title")
 
-            yield Static("Cible", classes="omega-subtitle")
-            yield Input(placeholder="ex. /var/www/monsite, https://example.org", id="target-input")
+            yield Static(_("Cible"), classes="omega-subtitle")
+            yield Input(placeholder=_("ex. /var/www/monsite, https://example.org"), id="target-input")
 
             with Horizontal(classes="omega-form-row"):
                 with Vertical(classes="omega-form-row-item"):
-                    yield Static("Type", classes="omega-field-label")
+                    yield Static(_("Type"), classes="omega-field-label")
                     yield Select(
-                        [("Local (repertoire)", "local"), ("Distant (crawl HTTP)", "distant")],
+                        [(_("Local (répertoire)"), "local"), (_("Distant (crawl HTTP)"), "distant")],
                         value="local",
                         id="type-select",
                     )
                 with Vertical(classes="omega-form-row-item-last"):
-                    yield Static("Mode", classes="omega-field-label")
+                    yield Static(_("Mode"), classes="omega-field-label")
                     yield Select(
-                        [("Statique", "static"), ("Dynamique (verifie par HTTP)", "dynamic")],
+                        [(_("Statique"), "static"), (_("Dynamique (vérifié par HTTP)"), "dynamic")],
                         value="static",
                         id="mode-select",
                     )
 
             yield Static(
-                "Garde-fous de crawl distant (ignores pour un scan local)", classes="omega-subtitle"
+                _("Garde-fous de crawl distant (ignorés pour un scan local)"), classes="omega-subtitle"
             )
             with Horizontal(classes="omega-form-row"):
                 with Vertical(classes="omega-form-row-item"):
-                    yield Static("Profondeur max", classes="omega-field-label")
+                    yield Static(_("Profondeur max"), classes="omega-field-label")
                     yield Input(value=_DEFAULT_MAX_DEPTH, id="max-depth-input")
                 with Vertical(classes="omega-form-row-item-last"):
-                    yield Static("Pages max", classes="omega-field-label")
+                    yield Static(_("Pages max"), classes="omega-field-label")
                     yield Input(value=_DEFAULT_MAX_PAGES, id="max-pages-input")
             with Horizontal(classes="omega-form-row"):
                 with Vertical(classes="omega-form-row-item"):
-                    yield Static("Delai entre requetes (ms)", classes="omega-field-label")
+                    yield Static(_("Délai entre requêtes (ms)"), classes="omega-field-label")
                     yield Input(value=_DEFAULT_DELAY_MS, id="delay-input")
                 with Vertical(classes="omega-form-row-item-last"):
                     yield Static("User-Agent", classes="omega-field-label")
                     yield Input(value=_DEFAULT_USER_AGENT, id="user-agent-input")
             with Horizontal(classes="omega-form-row"):
-                yield Static("Respecter robots.txt", classes="omega-switch-label")
+                yield Static(_("Respecter robots.txt"), classes="omega-switch-label")
                 yield Switch(value=False, id="respect-robots-switch")
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Lancer", id="launch", variant="primary")
+                    yield Button(_("Lancer"), id="launch", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
@@ -94,7 +95,7 @@ class ScanSetupScreen(OmegaScreen):
 
         target = self.query_one("#target-input", Input).value.strip()
         if not target:
-            self.app.notify("Saisissez une cible.", severity="warning")
+            self.app.notify(_("Saisissez une cible."), severity="warning")
             return
 
         guardrails = self._read_guardrails()
@@ -127,9 +128,9 @@ class ScanSetupScreen(OmegaScreen):
             max_pages = int(self.query_one("#max-pages-input", Input).value.strip() or _DEFAULT_MAX_PAGES)
             delay_ms = int(self.query_one("#delay-input", Input).value.strip() or _DEFAULT_DELAY_MS)
         except ValueError:
-            self.app.notify("Profondeur/pages/delai : entiers attendus.", severity="warning")
+            self.app.notify(_("Profondeur/pages/délai : entiers attendus."), severity="warning")
             return None
         if max_depth < 0 or max_pages < 1 or delay_ms < 0:
-            self.app.notify("Profondeur >= 0, pages >= 1 et delai >= 0 attendus.", severity="warning")
+            self.app.notify(_("Profondeur >= 0, pages >= 1 et délai >= 0 attendus."), severity="warning")
             return None
         return max_depth, max_pages, delay_ms

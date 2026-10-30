@@ -1,0 +1,423 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fold\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fold/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fold"
+msgstr "chứa bản cài đặt của omega-fold"
+
+#: src/omega_fold/application/commands/run_scan.py:68
+#, python-brace-format
+msgid "Parcours de {root_path}..."
+msgstr "Đang duyệt {root_path}..."
+
+#: src/omega_fold/application/commands/run_scan.py:72
+#, python-brace-format
+msgid "{count} fichier(s) trouvé(s), extraction des liens..."
+msgstr "Tìm thấy {count} tệp, đang trích xuất liên kết..."
+
+#: src/omega_fold/application/commands/run_scan.py:122
+#, python-brace-format
+msgid "Scan terminé : {count} fichier(s), {count2} lien(s)."
+msgstr "Quét xong: {count} tệp, {count2} liên kết."
+
+#: src/omega_fold/application/commands/run_scan.py:163
+#, python-brace-format
+msgid "Crawl de {base_url}..."
+msgstr "Đang crawl {base_url}..."
+
+#: src/omega_fold/application/commands/run_scan.py:184
+#, python-brace-format
+msgid "Limite de {max_pages} page(s) atteinte, crawl arrêté (site probablement plus grand)."
+msgstr "Đã đạt giới hạn {max_pages} trang, dừng crawl (trang web có lẽ lớn hơn)."
+
+#: src/omega_fold/application/commands/run_scan.py:198
+#, python-brace-format
+msgid "Échec de récupération, page ignorée : {url} ({fetch_error})"
+msgstr "Tải thất bại, bỏ qua trang: {url} ({fetch_error})"
+
+#: src/omega_fold/application/commands/run_scan.py:201
+#, python-brace-format
+msgid "Bloqué par robots.txt : {url}"
+msgstr "Bị robots.txt chặn: {url}"
+
+#: src/omega_fold/application/commands/run_scan.py:213
+#, python-brace-format
+msgid "Redirection hors domaine ignorée : {url} -> {final_url}"
+msgstr "Bỏ qua chuyển hướng ra ngoài tên miền: {url} -> {final_url}"
+
+#: src/omega_fold/application/commands/run_scan.py:216
+#, python-brace-format
+msgid "Page visitée : {url} ({status_code})"
+msgstr "Đã truy cập trang: {url} ({status_code})"
+
+#: src/omega_fold/application/commands/run_scan.py:317
+#, python-brace-format
+msgid "Crawl terminé : {count} page(s), {count2} lien(s)."
+msgstr "Crawl xong: {count} trang, {count2} liên kết."
+
+#: src/omega_fold/infrastructure/filesystem/local_fs_walker.py:25
+#, python-brace-format
+msgid "'{root_path}' n'est pas un répertoire lisible"
+msgstr "'{root_path}' không phải là thư mục đọc được"
+
+#: src/omega_fold/infrastructure/network/http_link_checker.py:30
+msgid "délai dépassé"
+msgstr "hết thời gian chờ"
+
+#: src/omega_fold/infrastructure/storage/sqlite/scan_repository.py:140
+msgid "échec de sauvegarde du résultat pour le scan {scan_id!r}"
+msgstr "không lưu được kết quả cho bản quét {scan_id!r}"
+
+#: src/omega_fold/interfaces/tui/app.py:38
+msgid " OMEGA-FOLD"
+msgstr " OMEGA-FOLD"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
+msgstr "Nhập một mục tiêu (thư mục cục bộ hoặc URL), loại (cục bộ/từ xa), chế độ (tĩnh hoặc động) và, với quét từ xa, các giới hạn an toàn khi crawl (độ sâu tối đa, số trang, độ trễ giữa các yêu cầu, User-Agent, tuân thủ robots.txt)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
+msgstr "Liệt kê mọi bản quét trước đây: chi tiết đầy đủ (cây thư mục, nhóm tệp, liên kết hỏng), hoặc chạy lại một bản quét trên cùng mục tiêu (bản quét từ xa chạy lại dùng giới hạn mặc định, không phải giới hạn của bản quét gốc — chúng không được lưu)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
+msgstr "Từ chi tiết một bản quét: JSON (cấu trúc đầy đủ), văn bản (báo cáo ngắn gọn) hoặc HTML (báo cáo trực quan có biểu đồ theo nhóm tệp, giao diện xuất độc lập với giao diện ứng dụng)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
+msgstr "Omega-fold phân tích một thư mục cục bộ hoặc crawl một trang web từ xa trong các giới hạn an toàn luôn bật (độ sâu, số trang, độ trễ, cùng tên miền): liên kết ngoài chỉ được kiểm tra qua HTTP ở chế độ động, liên kết trong luôn được kiểm tra với các tệp/trang thực sự tìm thấy, không bao giờ dựa vào phỏng đoán."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+msgid "Familles de fichiers"
+msgstr "Nhóm tệp"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+msgid "Extensions"
+msgstr "Phần mở rộng"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+msgid "Famille"
+msgstr "Nhóm"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+msgid "(le reste)"
+msgstr "(phần còn lại)"
+
+#: src/omega_fold/interfaces/tui/screens/quit_confirm.py:22
+msgid "QUITTER OMEGA-FOLD ?"
+msgstr "THOÁT OMEGA-FOLD?"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:136
+#, python-format
+msgid "Scan échoué (%s)"
+msgstr "Quét thất bại (%s)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:162
+msgid "Annulation"
+msgstr "Đang hủy"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:162
+msgid "Scan annulé."
+msgstr "Đã hủy quét."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:43
+msgid "ex. /var/www/monsite, https://example.org"
+msgstr "vd. /var/www/mysite, https://example.org"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:49
+msgid "Distant (crawl HTTP)"
+msgstr "Từ xa (crawl HTTP)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:49
+msgid "Local (répertoire)"
+msgstr "Cục bộ (thư mục)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:54
+msgid "Mode"
+msgstr "Chế độ"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:56
+msgid "Dynamique (vérifié par HTTP)"
+msgstr "Động (kiểm tra qua HTTP)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:56
+msgid "Statique"
+msgstr "Tĩnh"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:62
+msgid "Garde-fous de crawl distant (ignorés pour un scan local)"
+msgstr "Giới hạn an toàn khi crawl từ xa (bỏ qua khi quét cục bộ)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:69
+msgid "Pages max"
+msgstr "Số trang tối đa"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:73
+msgid "Délai entre requêtes (ms)"
+msgstr "Độ trễ giữa các yêu cầu (ms)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:79
+msgid "Respecter robots.txt"
+msgstr "Tuân thủ robots.txt"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:131
+msgid "Profondeur/pages/délai : entiers attendus."
+msgstr "Độ sâu/số trang/độ trễ: cần số nguyên."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:134
+msgid "Profondeur >= 0, pages >= 1 et délai >= 0 attendus."
+msgstr "Cần độ sâu >= 0, số trang >= 1 và độ trễ >= 0."
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:40
+#, python-brace-format
+msgid "Cible : {target} ({value}) — mode {value2} — statut {status}"
+msgstr "Mục tiêu: {target} ({value}) — chế độ {value2} — trạng thái {status}"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:44
+#, python-brace-format
+msgid "[b]{value}[/b] — {total_files} fichier(s) — {total_dirs} répertoire(s) — profondeur max {max_depth} — {total_links} lien(s) ({broken_links} cassé(s))"
+msgstr "[b]{value}[/b] — {total_files} tệp — {total_dirs} thư mục — độ sâu tối đa {max_depth} — {total_links} liên kết ({broken_links} hỏng)"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:50
+msgid "[$warning]⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Rejouer avec un --max-pages plus élevé pour une couverture complète.[/]"
+msgstr "[$warning]⚠ Đã đạt giới hạn --max-pages: trang web có lẽ có nhiều trang hơn số được báo cáo ở đây. Hãy chạy lại với --max-pages cao hơn để bao quát đầy đủ.[/]"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:56 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:156
+msgid "Répartition par famille"
+msgstr "Phân bố theo nhóm"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:59
+msgid "Répartition par extension"
+msgstr "Phân bố theo phần mở rộng"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:62
+msgid "Arborescence"
+msgstr "Cây thư mục"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:65 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:225
+msgid "Liens cassés"
+msgstr "Liên kết hỏng"
+
+#: src/omega_fold/interfaces/tui/widgets/broken_links_table.py:14 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:229
+msgid "Trouvé dans"
+msgstr "Tìm thấy trong"
+
+#: src/omega_fold/interfaces/tui/widgets/broken_links_table.py:14
+msgid "URL"
+msgstr "URL"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164
+msgid "Extension"
+msgstr "Phần mở rộng"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15 src/omega_fold/interfaces/tui/widgets/history_table.py:18 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164
+msgid "Fichiers"
+msgstr "Tệp"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15 src/omega_fold/interfaces/tui/widgets/history_table.py:18 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:183
+msgid "Taille"
+msgstr "Kích thước"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:100 src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:23 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:168
+msgid "(sans extension)"
+msgstr "(không có phần mở rộng)"
+
+#: src/omega_fold/interfaces/tui/widgets/history_table.py:18
+msgid "Liens"
+msgstr "Liên kết"
+
+#: src/omega_fold/interfaces/tui/widgets/progress_panel.py:50
+#, python-brace-format
+msgid "ERREUR : {message}"
+msgstr "LỖI: {message}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:53
+msgid "=== OMEGA-FOLD — Rapport de scan ==="
+msgstr "=== OMEGA-FOLD — Báo cáo quét ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:54
+#, python-brace-format
+msgid "Scan ID       : {id}"
+msgstr "Mã quét       : {id}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:55
+#, python-brace-format
+msgid "Cible         : {target}"
+msgstr "Mục tiêu      : {target}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:56
+#, python-brace-format
+msgid "Type          : {value}"
+msgstr "Loại          : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:57
+#, python-brace-format
+msgid "Date          : {created_at}"
+msgstr "Ngày          : {created_at}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:58
+#, python-brace-format
+msgid "Mode          : {value}"
+msgstr "Chế độ        : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:59
+#, python-brace-format
+msgid "Statut        : {status}"
+msgstr "Trạng thái    : {status}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:63
+msgid "ATTENTION : limite --max-pages atteinte, le site a probablement plus de"
+msgstr "CHÚ Ý: đã đạt giới hạn --max-pages, trang web có lẽ có nhiều"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:64
+msgid "pages que ce qui est rapporté ici — relancer avec --max-pages plus élevé."
+msgstr "trang hơn số được báo cáo ở đây — hãy chạy lại với --max-pages cao hơn."
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:74
+#, python-brace-format
+msgid "Taille totale : {value}"
+msgstr "Tổng dung lượng: {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:75
+#, python-brace-format
+msgid "Fichiers      : {total_files}"
+msgstr "Tệp          : {total_files}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:76
+#, python-brace-format
+msgid "Répertoires   : {total_dirs}"
+msgstr "Thư mục       : {total_dirs}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:77
+#, python-brace-format
+msgid "Profondeur max: {max_depth}"
+msgstr "Độ sâu tối đa : {max_depth}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:79
+#, python-brace-format
+msgid "Liens totaux  : {total_links}"
+msgstr "Tổng liên kết : {total_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:80
+#, python-brace-format
+msgid "Liens internes: {internal_links}"
+msgstr "Liên kết trong: {internal_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:81
+#, python-brace-format
+msgid "Liens externes: {external_links}"
+msgstr "Liên kết ngoài: {external_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:82
+#, python-brace-format
+msgid "Liens cassés  : {broken_links}"
+msgstr "Liên kết hỏng : {broken_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:87
+msgid "=== Répartition par famille ==="
+msgstr "=== Phân bố theo nhóm ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:90
+#, python-brace-format
+msgid "  {family:<12} {files_count:>5} fichier(s)  {value:>10}  ({percentage_of_total:.1f}%)"
+msgstr "  {family:<12} {files_count:>5} tệp  {value:>10}  ({percentage_of_total:.1f}%)"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:96
+msgid "=== Répartition par extension ==="
+msgstr "=== Phân bố theo phần mở rộng ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:99
+#, python-brace-format
+msgid "  {value:<16} {files_count:>5} fichier(s)  {value2:>10}  ({percentage_of_total:.1f}%)"
+msgstr "  {value:<16} {files_count:>5} tệp  {value2:>10}  ({percentage_of_total:.1f}%)"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:105
+msgid "=== Arborescence ==="
+msgstr "=== Cây thư mục ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:110
+msgid "=== Liens cassés ==="
+msgstr "=== Liên kết hỏng ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:112
+#, python-brace-format
+msgid "  {url}  (trouvé dans {source_file})"
+msgstr "  {url}  (tìm thấy trong {source_file})"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-FOLD — Rapport de scan {id}"
+msgstr "OMEGA-FOLD — Báo cáo quét {id}"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:127
+msgid "OMEGA-FOLD — Rapport de scan"
+msgstr "OMEGA-FOLD — Báo cáo quét"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:131
+msgid "⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Relancer avec --max-pages plus élevé pour une couverture complète."
+msgstr "⚠ Đã đạt giới hạn --max-pages: trang web có lẽ có nhiều trang hơn số được báo cáo ở đây. Hãy chạy lại với --max-pages cao hơn để bao quát đầy đủ."
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:137
+msgid "Type :"
+msgstr "Loại:"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:147
+msgid "Taille totale"
+msgstr "Tổng dung lượng"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:148
+msgid "Fichier(s)"
+msgstr "Tệp"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:149
+msgid "Répertoire(s)"
+msgstr "Thư mục"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:151 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:197
+msgid "Lien(s)"
+msgstr "Liên kết"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:152
+msgid "Lien(s) cassé(s)"
+msgstr "Liên kết hỏng"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:180
+msgid "Plus gros fichiers"
+msgstr "Tệp lớn nhất"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:183
+msgid "Chemin"
+msgstr "Đường dẫn"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:194
+#, python-brace-format
+msgid "Domaines externes liés ({external_domains})"
+msgstr "Tên miền ngoài được liên kết ({external_domains})"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:197
+msgid "Domaine"
+msgstr "Tên miền"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:206
+#, python-brace-format
+msgid "Voir les {external_domains} domaine(s) restant(s)"
+msgstr "Xem {external_domains} tên miền còn lại"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:220
+#, python-brace-format
+msgid "Arborescence ({total_files} fichier(s), {total_dirs} répertoire(s))"
+msgstr "Cây thư mục ({total_files} tệp, {total_dirs} thư mục)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:227
+#, python-brace-format
+msgid "Afficher les {broken_links} lien(s) cassé(s)"
+msgstr "Hiện {broken_links} liên kết hỏng"

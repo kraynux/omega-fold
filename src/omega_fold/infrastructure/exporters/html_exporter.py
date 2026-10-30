@@ -14,6 +14,7 @@ from omega_fold.domain.stats.formatting import format_size
 from omega_fold.infrastructure.exporters.family_chart import render_family_bar_chart
 from omega_fold.infrastructure.exporters.html_theme_resolver import resolve_export_palette
 from omega_fold.infrastructure.exporters.tree_html import render_tree_html
+from omega_fold.shared.i18n import TRANSLATOR, _
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
 
@@ -21,6 +22,11 @@ _env = Environment(
     loader=FileSystemLoader(_TEMPLATES_DIR),
     autoescape=select_autoescape(["html"]),
 )
+# Lot N (langue des exports) : texte des gabarits traduit par `_` dans la langue active
+# (celle des exports sous translating_as) ; lang= et dir= du document suivent.
+_env.globals.update(_=_, html_lang=TRANSLATOR.html_lang, html_dir=TRANSLATOR.html_dir)
+# R1 : texte enregistre en francais (titre, impact...) retraduit dans la langue de l'export.
+_env.filters["tr"] = lambda value: _(value) if isinstance(value, str) and value else value
 _env.filters["format_size"] = format_size
 
 
@@ -29,4 +35,6 @@ def export_html(result: ScanResult, theme_name: str = DEFAULT_EXPORT_THEME) -> s
     palette = resolve_export_palette(theme_name)
     chart_svg = render_family_bar_chart(result.family_stats, palette)
     tree_html = render_tree_html(result.root_dir) if result.root_dir is not None else ""
-    return template.render(result=result, scan=result.scan, chart_svg=chart_svg, tree_html=tree_html, palette=palette)
+    return template.render(
+        result=result, scan=result.scan, chart_svg=chart_svg, tree_html=tree_html, palette=palette
+    )

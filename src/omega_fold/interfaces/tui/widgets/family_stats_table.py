@@ -6,12 +6,13 @@ from textual.widgets import DataTable
 
 from omega_fold.domain.stats.formatting import format_size
 from omega_fold.domain.stats.models import FamilyStats
+from omega_fold.shared.i18n import _
 
 
 class FamilyStatsTable(DataTable[str]):
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Famille", "Fichiers", "Taille", "%")
+        self.add_columns(_("Famille"), _("Fichiers"), _("Taille"), "%")
 
     def set_family_stats(self, stats: list[FamilyStats]) -> None:
         self.clear()

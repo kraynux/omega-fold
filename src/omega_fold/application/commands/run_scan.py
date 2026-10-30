@@ -48,6 +48,7 @@ from omega_fold.ports.html_link_extractor import HtmlLinkExtractor
 from omega_fold.ports.link_checker import LinkChecker
 from omega_fold.ports.local_fs_reader import LocalFsReader
 from omega_fold.ports.scan_repository import ScanRepository
+from omega_fold.shared.i18n import N_, log_text
 
 _HTML_EXTENSION = ".html"
 _DEFAULT_TIMEOUT_SECONDS = 8.0
@@ -64,11 +65,11 @@ def run_scan_local(
     now: Callable[[], datetime],
     scan_repository: ScanRepository | None = None,
 ) -> ScanResult:
-    _logger.info(f"Parcours de {root_path}...")
+    _logger.info(log_text(N_("Parcours de {root_path}..."), root_path=root_path))
     root_dir = local_fs_reader.read_tree(root_path)
     files = flatten_files(root_dir)
     known_paths = frozenset(f.path for f in files)
-    _logger.info(f"{len(files)} fichier(s) trouve(s), extraction des liens...")
+    _logger.info(log_text(N_("{count} fichier(s) trouvé(s), extraction des liens..."), count=len(files)))
 
     links: list[LinkEntry] = []
     for file in files:
@@ -118,7 +119,7 @@ def run_scan_local(
         assert scan.id is not None  # toujours fixe par id_factory() ci-dessus
         scan_repository.save(scan)
         scan_repository.save_result(scan.id, result)
-    _logger.info(f"Scan termine : {len(files)} fichier(s), {len(links)} lien(s).")
+    _logger.info(log_text(N_("Scan terminé : {count} fichier(s), {count2} lien(s)."), count=len(files), count2=len(links)))
     return result
 
 
@@ -159,7 +160,7 @@ async def run_scan_distant(
     supposition (le lien n'a pas ete tente, ce n'est pas la meme chose
     qu'un lien confirme casse)."""
     base_url = normalize_distant_target(base_url)
-    _logger.info(f"Crawl de {base_url}...")
+    _logger.info(log_text(N_("Crawl de {base_url}..."), base_url=base_url))
     base_domain = urlparse(base_url).netloc
 
     visited_status: dict[str, int] = {}  # url (sans fragment) -> status_code
@@ -180,7 +181,8 @@ async def run_scan_distant(
             # "1000 fichiers trouves" ne disait pas si c'etait la TAILLE
             # REELLE du site ou juste la limite par defaut atteinte.
             truncated = True
-            _logger.info(f"Limite de {max_pages} page(s) atteinte, crawl arrete (site probablement plus grand).")
+            _logger.info(log_text(N_("Limite de {max_pages} page(s) atteinte, crawl arrêté "
+                                     "(site probablement plus grand)."), max_pages=max_pages))
             break
         url, depth = queue.pop(0)
         if url in visited_status:
@@ -193,10 +195,10 @@ async def run_scan_distant(
             # DNS...) ne doit jamais interrompre tout le crawl — deja perdu
             # sinon toute la progression accumulee (bug reel signale par
             # l'utilisateur). Reste UNCHECKED, meme principe que robots.txt.
-            _logger.info(f"Echec de recuperation, page ignoree : {url} ({page.fetch_error})")
+            _logger.info(log_text(N_("Échec de récupération, page ignorée : {url} ({fetch_error})"), url=url, fetch_error=page.fetch_error))
             continue
         if not page.allowed_by_robots:
-            _logger.info(f"Bloque par robots.txt : {url}")
+            _logger.info(log_text(N_("Bloqué par robots.txt : {url}"), url=url))
             continue  # jamais visite : reste UNCHECKED pour les liens qui y menent
 
         if not is_same_domain(page.final_url, base_domain):
@@ -208,10 +210,10 @@ async def run_scan_distant(
             # cela le crawl continuerait sur le site externe. Reste
             # UNCHECKED cote verification de lien interne (voir robots.txt
             # ci-dessus, meme principe).
-            _logger.info(f"Redirection hors domaine ignoree : {url} -> {page.final_url}")
+            _logger.info(log_text(N_("Redirection hors domaine ignorée : {url} -> {final_url}"), url=url, final_url=page.final_url))
             continue
 
-        _logger.info(f"Page visitee : {url} ({page.status_code})")
+        _logger.info(log_text(N_("Page visitée : {url} ({status_code})"), url=url, status_code=page.status_code))
         visited_status[url] = page.status_code
         deepest_depth = max(deepest_depth, depth)
         virtual_path = _page_url_to_path(url)
@@ -312,7 +314,7 @@ async def run_scan_distant(
         assert scan.id is not None  # toujours fixe par id_factory() ci-dessus
         scan_repository.save(scan)
         scan_repository.save_result(scan.id, result)
-    _logger.info(f"Crawl termine : {len(files)} page(s), {len(links)} lien(s).")
+    _logger.info(log_text(N_("Crawl terminé : {count} page(s), {count2} lien(s)."), count=len(files), count2=len(links)))
     return result
 
 

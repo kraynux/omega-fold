@@ -20,7 +20,7 @@ def test_markup_contains_expected_accent_regions() -> None:
 
 
 def test_markup_contains_wordmark_and_tagline_text() -> None:
-    assert "V1.00" in _MARKUP
+    assert "V1.50" in _MARKUP
     assert "SCAN" in _MARKUP and "FOLDER" in _MARKUP and "EXPORT" in _MARKUP
 
 

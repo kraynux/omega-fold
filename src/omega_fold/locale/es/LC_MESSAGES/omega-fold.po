@@ -1,0 +1,423 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fold\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fold/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fold"
+msgstr "contiene la instalación de omega-fold"
+
+#: src/omega_fold/application/commands/run_scan.py:68
+#, python-brace-format
+msgid "Parcours de {root_path}..."
+msgstr "Recorrido de {root_path}..."
+
+#: src/omega_fold/application/commands/run_scan.py:72
+#, python-brace-format
+msgid "{count} fichier(s) trouvé(s), extraction des liens..."
+msgstr "{count} archivo(s) encontrado(s), extrayendo los enlaces..."
+
+#: src/omega_fold/application/commands/run_scan.py:122
+#, python-brace-format
+msgid "Scan terminé : {count} fichier(s), {count2} lien(s)."
+msgstr "Escaneo terminado: {count} archivo(s), {count2} enlace(s)."
+
+#: src/omega_fold/application/commands/run_scan.py:163
+#, python-brace-format
+msgid "Crawl de {base_url}..."
+msgstr "Rastreo de {base_url}..."
+
+#: src/omega_fold/application/commands/run_scan.py:184
+#, python-brace-format
+msgid "Limite de {max_pages} page(s) atteinte, crawl arrêté (site probablement plus grand)."
+msgstr "Límite de {max_pages} página(s) alcanzado, rastreo detenido (sitio probablemente más grande)."
+
+#: src/omega_fold/application/commands/run_scan.py:198
+#, python-brace-format
+msgid "Échec de récupération, page ignorée : {url} ({fetch_error})"
+msgstr "Fallo de recuperación, página ignorada: {url} ({fetch_error})"
+
+#: src/omega_fold/application/commands/run_scan.py:201
+#, python-brace-format
+msgid "Bloqué par robots.txt : {url}"
+msgstr "Bloqueado por robots.txt: {url}"
+
+#: src/omega_fold/application/commands/run_scan.py:213
+#, python-brace-format
+msgid "Redirection hors domaine ignorée : {url} -> {final_url}"
+msgstr "Redirección fuera del dominio ignorada: {url} -> {final_url}"
+
+#: src/omega_fold/application/commands/run_scan.py:216
+#, python-brace-format
+msgid "Page visitée : {url} ({status_code})"
+msgstr "Página visitada: {url} ({status_code})"
+
+#: src/omega_fold/application/commands/run_scan.py:317
+#, python-brace-format
+msgid "Crawl terminé : {count} page(s), {count2} lien(s)."
+msgstr "Rastreo terminado: {count} página(s), {count2} enlace(s)."
+
+#: src/omega_fold/infrastructure/filesystem/local_fs_walker.py:25
+#, python-brace-format
+msgid "'{root_path}' n'est pas un répertoire lisible"
+msgstr "'{root_path}' no es un directorio legible"
+
+#: src/omega_fold/infrastructure/network/http_link_checker.py:30
+msgid "délai dépassé"
+msgstr "tiempo de espera superado"
+
+#: src/omega_fold/infrastructure/storage/sqlite/scan_repository.py:140
+msgid "échec de sauvegarde du résultat pour le scan {scan_id!r}"
+msgstr "error al guardar el resultado del escaneo {scan_id!r}"
+
+#: src/omega_fold/interfaces/tui/app.py:38
+msgid " OMEGA-FOLD"
+msgstr " OMEGA-FOLD"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
+msgstr "Introducir un objetivo (directorio local o URL), el tipo (local/remoto), el modo (estático o dinámico) y, para un escaneo remoto, las salvaguardas de rastreo (profundidad máx., número de páginas, retardo entre peticiones, User-Agent, respeto de robots.txt)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
+msgstr "Lista todos los escaneos pasados: detalle completo (árbol, familias, enlaces rotos) o repetir un escaneo sobre el mismo objetivo (un escaneo remoto repetido usa las salvaguardas por defecto, no las del escaneo original — no guardadas)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
+msgstr "Desde el detalle de un escaneo: JSON (estructura completa), texto (informe compacto) o HTML (informe visual con histograma por familia, tema de exportación independiente del tema de la interfaz)."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
+msgstr "Omega-fold analiza un directorio local o rastrea un sitio remoto con salvaguardas siempre activas (profundidad, número de páginas, retardo, mismo dominio): un enlace externo solo se verifica por HTTP en modo dinámico, un enlace interno se verifica siempre contra los archivos/páginas realmente encontrados, nunca por suposición."
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+msgid "Familles de fichiers"
+msgstr "Familias de archivos"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+msgid "Extensions"
+msgstr "Extensiones"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+msgid "Famille"
+msgstr "Familia"
+
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+msgid "(le reste)"
+msgstr "(el resto)"
+
+#: src/omega_fold/interfaces/tui/screens/quit_confirm.py:22
+msgid "QUITTER OMEGA-FOLD ?"
+msgstr "¿SALIR DE OMEGA-FOLD?"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:136
+#, python-format
+msgid "Scan échoué (%s)"
+msgstr "Escaneo fallido (%s)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:162
+msgid "Annulation"
+msgstr "Cancelación"
+
+#: src/omega_fold/interfaces/tui/screens/scan_progress.py:162
+msgid "Scan annulé."
+msgstr "Escaneo cancelado."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:43
+msgid "ex. /var/www/monsite, https://example.org"
+msgstr "p. ej. /var/www/misitio, https://example.org"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:49
+msgid "Distant (crawl HTTP)"
+msgstr "Remoto (rastreo HTTP)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:49
+msgid "Local (répertoire)"
+msgstr "Local (directorio)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:54
+msgid "Mode"
+msgstr "Modo"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:56
+msgid "Dynamique (vérifié par HTTP)"
+msgstr "Dinámico (verificado por HTTP)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:56
+msgid "Statique"
+msgstr "Estático"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:62
+msgid "Garde-fous de crawl distant (ignorés pour un scan local)"
+msgstr "Salvaguardas de rastreo remoto (ignoradas en un escaneo local)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:69
+msgid "Pages max"
+msgstr "Páginas máx."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:73
+msgid "Délai entre requêtes (ms)"
+msgstr "Retardo entre peticiones (ms)"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:79
+msgid "Respecter robots.txt"
+msgstr "Respetar robots.txt"
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:131
+msgid "Profondeur/pages/délai : entiers attendus."
+msgstr "Profundidad/páginas/retardo: se esperan enteros."
+
+#: src/omega_fold/interfaces/tui/screens/scan_setup.py:134
+msgid "Profondeur >= 0, pages >= 1 et délai >= 0 attendus."
+msgstr "Se espera profundidad >= 0, páginas >= 1 y retardo >= 0."
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:40
+#, python-brace-format
+msgid "Cible : {target} ({value}) — mode {value2} — statut {status}"
+msgstr "Objetivo: {target} ({value}) — modo {value2} — estado {status}"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:44
+#, python-brace-format
+msgid "[b]{value}[/b] — {total_files} fichier(s) — {total_dirs} répertoire(s) — profondeur max {max_depth} — {total_links} lien(s) ({broken_links} cassé(s))"
+msgstr "[b]{value}[/b] — {total_files} archivo(s) — {total_dirs} directorio(s) — profundidad máx. {max_depth} — {total_links} enlace(s) ({broken_links} roto(s))"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:50
+msgid "[$warning]⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Rejouer avec un --max-pages plus élevé pour une couverture complète.[/]"
+msgstr "[$warning]⚠ Límite --max-pages alcanzado: el sitio probablemente tiene más páginas de las indicadas aquí. Repita con un --max-pages más alto para una cobertura completa.[/]"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:56 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:156
+msgid "Répartition par famille"
+msgstr "Reparto por familia"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:59
+msgid "Répartition par extension"
+msgstr "Reparto por extensión"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:62
+msgid "Arborescence"
+msgstr "Árbol"
+
+#: src/omega_fold/interfaces/tui/screens/show_detail.py:65 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:225
+msgid "Liens cassés"
+msgstr "Enlaces rotos"
+
+#: src/omega_fold/interfaces/tui/widgets/broken_links_table.py:14 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:229
+msgid "Trouvé dans"
+msgstr "Encontrado en"
+
+#: src/omega_fold/interfaces/tui/widgets/broken_links_table.py:14
+msgid "URL"
+msgstr "URL"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164
+msgid "Extension"
+msgstr "Extensión"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15 src/omega_fold/interfaces/tui/widgets/history_table.py:18 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164
+msgid "Fichiers"
+msgstr "Archivos"
+
+#: src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:17 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15 src/omega_fold/interfaces/tui/widgets/history_table.py:18 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:164 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:183
+msgid "Taille"
+msgstr "Tamaño"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:100 src/omega_fold/interfaces/tui/widgets/extension_stats_table.py:23 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:168
+msgid "(sans extension)"
+msgstr "(sin extensión)"
+
+#: src/omega_fold/interfaces/tui/widgets/history_table.py:18
+msgid "Liens"
+msgstr "Enlaces"
+
+#: src/omega_fold/interfaces/tui/widgets/progress_panel.py:50
+#, python-brace-format
+msgid "ERREUR : {message}"
+msgstr "ERROR: {message}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:53
+msgid "=== OMEGA-FOLD — Rapport de scan ==="
+msgstr "=== OMEGA-FOLD — Informe de escaneo ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:54
+#, python-brace-format
+msgid "Scan ID       : {id}"
+msgstr "ID escaneo    : {id}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:55
+#, python-brace-format
+msgid "Cible         : {target}"
+msgstr "Objetivo      : {target}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:56
+#, python-brace-format
+msgid "Type          : {value}"
+msgstr "Tipo          : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:57
+#, python-brace-format
+msgid "Date          : {created_at}"
+msgstr "Fecha         : {created_at}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:58
+#, python-brace-format
+msgid "Mode          : {value}"
+msgstr "Modo          : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:59
+#, python-brace-format
+msgid "Statut        : {status}"
+msgstr "Estado        : {status}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:63
+msgid "ATTENTION : limite --max-pages atteinte, le site a probablement plus de"
+msgstr "ATENCIÓN: límite --max-pages alcanzado, el sitio probablemente tiene más"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:64
+msgid "pages que ce qui est rapporté ici — relancer avec --max-pages plus élevé."
+msgstr "páginas de las indicadas aquí — vuelva a ejecutar con un --max-pages mayor."
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:74
+#, python-brace-format
+msgid "Taille totale : {value}"
+msgstr "Tamaño total  : {value}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:75
+#, python-brace-format
+msgid "Fichiers      : {total_files}"
+msgstr "Archivos      : {total_files}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:76
+#, python-brace-format
+msgid "Répertoires   : {total_dirs}"
+msgstr "Directorios   : {total_dirs}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:77
+#, python-brace-format
+msgid "Profondeur max: {max_depth}"
+msgstr "Profund. máx. : {max_depth}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:79
+#, python-brace-format
+msgid "Liens totaux  : {total_links}"
+msgstr "Enlaces total.: {total_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:80
+#, python-brace-format
+msgid "Liens internes: {internal_links}"
+msgstr "Enlaces intern.: {internal_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:81
+#, python-brace-format
+msgid "Liens externes: {external_links}"
+msgstr "Enlaces extern.: {external_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:82
+#, python-brace-format
+msgid "Liens cassés  : {broken_links}"
+msgstr "Enlaces rotos : {broken_links}"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:87
+msgid "=== Répartition par famille ==="
+msgstr "=== Distribución por familia ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:90
+#, python-brace-format
+msgid "  {family:<12} {files_count:>5} fichier(s)  {value:>10}  ({percentage_of_total:.1f}%)"
+msgstr "  {family:<12} {files_count:>5} archivo(s)  {value:>10}  ({percentage_of_total:.1f}%)"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:96
+msgid "=== Répartition par extension ==="
+msgstr "=== Distribución por extensión ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:99
+#, python-brace-format
+msgid "  {value:<16} {files_count:>5} fichier(s)  {value2:>10}  ({percentage_of_total:.1f}%)"
+msgstr "  {value:<16} {files_count:>5} archivo(s)  {value2:>10}  ({percentage_of_total:.1f}%)"
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:105
+msgid "=== Arborescence ==="
+msgstr "=== Árbol ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:110
+msgid "=== Liens cassés ==="
+msgstr "=== Enlaces rotos ==="
+
+#: src/omega_fold/infrastructure/exporters/text_exporter.py:112
+#, python-brace-format
+msgid "  {url}  (trouvé dans {source_file})"
+msgstr "  {url}  (encontrado en {source_file})"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-FOLD — Rapport de scan {id}"
+msgstr "OMEGA-FOLD — Informe de escaneo {id}"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:127
+msgid "OMEGA-FOLD — Rapport de scan"
+msgstr "OMEGA-FOLD — Informe de escaneo"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:131
+msgid "⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Relancer avec --max-pages plus élevé pour une couverture complète."
+msgstr "⚠ Límite --max-pages alcanzado: el sitio probablemente tiene más páginas de las indicadas aquí. Vuelva a ejecutar con un --max-pages mayor para una cobertura completa."
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:137
+msgid "Type :"
+msgstr "Tipo:"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:147
+msgid "Taille totale"
+msgstr "Tamaño total"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:148
+msgid "Fichier(s)"
+msgstr "Archivo(s)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:149
+msgid "Répertoire(s)"
+msgstr "Directorio(s)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:151 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:197
+msgid "Lien(s)"
+msgstr "Enlace(s)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:152
+msgid "Lien(s) cassé(s)"
+msgstr "Enlace(s) roto(s)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:180
+msgid "Plus gros fichiers"
+msgstr "Archivos más grandes"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:183
+msgid "Chemin"
+msgstr "Ruta"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:194
+#, python-brace-format
+msgid "Domaines externes liés ({external_domains})"
+msgstr "Dominios externos enlazados ({external_domains})"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:197
+msgid "Domaine"
+msgstr "Dominio"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:206
+#, python-brace-format
+msgid "Voir les {external_domains} domaine(s) restant(s)"
+msgstr "Ver los {external_domains} dominio(s) restante(s)"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:220
+#, python-brace-format
+msgid "Arborescence ({total_files} fichier(s), {total_dirs} répertoire(s))"
+msgstr "Árbol ({total_files} archivo(s), {total_dirs} directorio(s))"
+
+#: src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:227
+#, python-brace-format
+msgid "Afficher les {broken_links} lien(s) cassé(s)"
+msgstr "Mostrar los {broken_links} enlace(s) roto(s)"

@@ -7,6 +7,7 @@ from __future__ import annotations
 from omega_fold.domain.reports.models import ScanResult
 from omega_fold.domain.stats.formatting import format_size
 from omega_fold.domain.tree.models import DirEntry
+from omega_fold.shared.i18n import _
 
 _MAX_TREE_DEPTH = 6
 """Profondeur maximale rendue dans l'arborescence ASCII — un rapport
@@ -49,18 +50,18 @@ def render_tree_lines(entry: DirEntry, prefix: str = "", is_last: bool = True, d
 def export_text(result: ScanResult) -> str:
     scan = result.scan
     lines = [
-        "=== OMEGA-FOLD — Rapport de scan ===",
-        f"Scan ID       : {scan.id}",
-        f"Cible         : {scan.target}",
-        f"Type          : {scan.target_type.value}",
-        f"Date          : {scan.created_at}",
-        f"Mode          : {scan.scan_mode.value}",
-        f"Statut        : {scan.status}",
+        _("=== OMEGA-FOLD — Rapport de scan ==="),
+        _("Scan ID       : {id}").format(id=scan.id),
+        _("Cible         : {target}").format(target=scan.target),
+        _("Type          : {value}").format(value=scan.target_type.value),
+        _("Date          : {created_at}").format(created_at=scan.created_at),
+        _("Mode          : {value}").format(value=scan.scan_mode.value),
+        _("Statut        : {status}").format(status=scan.status),
         *(
             [
                 "",
-                "ATTENTION : limite --max-pages atteinte, le site a probablement plus de",
-                "pages que ce qui est rapporte ici — relancer avec --max-pages plus eleve.",
+                _("ATTENTION : limite --max-pages atteinte, le site a probablement plus de"),
+                _("pages que ce qui est rapporté ici — relancer avec --max-pages plus élevé."),
             ]
             if scan.status == "completed_truncated"
             else []
@@ -70,45 +71,45 @@ def export_text(result: ScanResult) -> str:
         # attendue d'un rapport de scan (objectif premier, avant tout le
         # reste — demande explicite de l'utilisateur), format lisible
         # (Ko/Mo/Go...) plutot que le nombre brut d'octets.
-        f"Taille totale : {format_size(scan.total_size)}",
-        f"Fichiers      : {scan.total_files}",
-        f"Repertoires   : {scan.total_dirs}",
-        f"Profondeur max: {scan.max_depth}",
+        _("Taille totale : {value}").format(value=format_size(scan.total_size)),
+        _("Fichiers      : {total_files}").format(total_files=scan.total_files),
+        _("Répertoires   : {total_dirs}").format(total_dirs=scan.total_dirs),
+        _("Profondeur max: {max_depth}").format(max_depth=scan.max_depth),
         "",
-        f"Liens totaux  : {scan.total_links}",
-        f"Liens internes: {scan.internal_links}",
-        f"Liens externes: {scan.external_links}",
-        f"Liens casses  : {scan.broken_links}",
+        _("Liens totaux  : {total_links}").format(total_links=scan.total_links),
+        _("Liens internes: {internal_links}").format(internal_links=scan.internal_links),
+        _("Liens externes: {external_links}").format(external_links=scan.external_links),
+        _("Liens cassés  : {broken_links}").format(broken_links=scan.broken_links),
         "",
     ]
 
     if result.family_stats:
-        lines.append("=== Repartition par famille ===")
+        lines.append(_("=== Répartition par famille ==="))
         for stats in result.family_stats:
             lines.append(
-                f"  {stats.family:<12} {stats.files_count:>5} fichier(s)  "
-                f"{format_size(stats.total_size):>10}  ({stats.percentage_of_total:.1f}%)"
+                _("  {family:<12} {files_count:>5} fichier(s)  {value:>10}  "
+                  "({percentage_of_total:.1f}%)").format(family=stats.family, files_count=stats.files_count, value=format_size(stats.total_size), percentage_of_total=stats.percentage_of_total)
             )
         lines.append("")
 
     if result.extension_stats:
-        lines.append("=== Repartition par extension ===")
+        lines.append(_("=== Répartition par extension ==="))
         for ext in result.extension_stats:
             lines.append(
-                f"  {(ext.extension or '(sans extension)'):<16} {ext.files_count:>5} fichier(s)  "
-                f"{format_size(ext.total_size):>10}  ({ext.percentage_of_total:.1f}%)"
+                _("  {value:<16} {files_count:>5} fichier(s)  {value2:>10}  "
+                  "({percentage_of_total:.1f}%)").format(value=ext.extension or _("(sans extension)"), files_count=ext.files_count, value2=format_size(ext.total_size), percentage_of_total=ext.percentage_of_total)
             )
         lines.append("")
 
     if result.root_dir is not None:
-        lines.append("=== Arborescence ===")
+        lines.append(_("=== Arborescence ==="))
         lines.extend(render_tree_lines(result.root_dir))
         lines.append("")
 
     if result.broken_links:
-        lines.append("=== Liens casses ===")
+        lines.append(_("=== Liens cassés ==="))
         for link in result.broken_links:
-            lines.append(f"  {link.url}  (trouve dans {link.source_file})")
+            lines.append(_("  {url}  (trouvé dans {source_file})").format(url=link.url, source_file=link.source_file))
         lines.append("")
 
     return "\n".join(lines)

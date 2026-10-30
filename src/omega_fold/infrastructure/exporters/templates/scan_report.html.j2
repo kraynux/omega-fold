@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ html_lang() }}" dir="{{ html_dir() }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OMEGA-FOLD — Rapport de scan {{ scan.id }}</title>
+<title>{{ _("OMEGA-FOLD — Rapport de scan {id}").format(id=scan.id) }}</title>
 <style>
   /* Couleurs pilotees par le theme d'export choisi (omega_lib.theme.policies
      ::EXPORT_PALETTES, meme catalogue que toute la suite, D-005/D-008).
@@ -124,48 +124,48 @@
 </head>
 <body>
   <div class="container">
-    <h1>OMEGA-FOLD — Rapport de scan</h1>
+    <h1>{{ _("OMEGA-FOLD — Rapport de scan") }}</h1>
 
     {% if scan.status == "completed_truncated" %}
     <div class="warning-banner">
-      ⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Relancer avec --max-pages plus élevé pour une couverture complète.
+      {{ _("⚠ Limite --max-pages atteinte : le site a probablement plus de pages que ce qui est rapporté ici. Relancer avec --max-pages plus élevé pour une couverture complète.") }}
     </div>
     {% endif %}
 
     <div class="meta-grid">
-      <div class="meta-item"><strong>Cible :</strong> {{ scan.target }}</div>
-      <div class="meta-item"><strong>Type :</strong> {{ scan.target_type.value }}</div>
-      <div class="meta-item"><strong>Date :</strong> {{ scan.created_at }}</div>
-      <div class="meta-item"><strong>Mode :</strong> {{ scan.scan_mode.value }}</div>
-      <div class="meta-item"><strong>Statut :</strong> {{ scan.status }}</div>
-      <div class="meta-item"><strong>Scan ID :</strong> {{ scan.id }}</div>
+      <div class="meta-item"><strong>{{ _("Cible :") }}</strong> {{ scan.target }}</div>
+      <div class="meta-item"><strong>{{ _("Type :") }}</strong> {{ scan.target_type.value }}</div>
+      <div class="meta-item"><strong>{{ _("Date :") }}</strong> {{ scan.created_at }}</div>
+      <div class="meta-item"><strong>{{ _("Mode :") }}</strong> {{ scan.scan_mode.value }}</div>
+      <div class="meta-item"><strong>{{ _("Statut :") }}</strong> {{ scan.status }}</div>
+      <div class="meta-item"><strong>{{ _("Scan ID :") }}</strong> {{ scan.id }}</div>
     </div>
 
     <div class="stats-grid">
       <!-- Taille totale en premier : c'est l'information la plus attendue d'un
            rapport de scan (objectif premier, avant tout le reste). -->
-      <div class="stat emphasis"><div class="stat-value">{{ scan.total_size | format_size }}</div><div>Taille totale</div></div>
-      <div class="stat"><div class="stat-value">{{ scan.total_files }}</div><div>Fichier(s)</div></div>
-      <div class="stat"><div class="stat-value">{{ scan.total_dirs }}</div><div>Repertoire(s)</div></div>
-      <div class="stat"><div class="stat-value">{{ scan.max_depth }}</div><div>Profondeur max</div></div>
-      <div class="stat"><div class="stat-value">{{ scan.total_links }}</div><div>Lien(s)</div></div>
-      <div class="stat"><div class="stat-value broken">{{ scan.broken_links }}</div><div>Lien(s) casse(s)</div></div>
+      <div class="stat emphasis"><div class="stat-value">{{ scan.total_size | format_size }}</div><div>{{ _("Taille totale") }}</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.total_files }}</div><div>{{ _("Fichier(s)") }}</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.total_dirs }}</div><div>{{ _("Répertoire(s)") }}</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.max_depth }}</div><div>{{ _("Profondeur max") }}</div></div>
+      <div class="stat"><div class="stat-value">{{ scan.total_links }}</div><div>{{ _("Lien(s)") }}</div></div>
+      <div class="stat"><div class="stat-value broken">{{ scan.broken_links }}</div><div>{{ _("Lien(s) cassé(s)") }}</div></div>
     </div>
 
     {% if chart_svg %}
-    <h2>Repartition par famille</h2>
+    <h2>{{ _("Répartition par famille") }}</h2>
     <div class="box chart-box">{{ chart_svg | safe }}</div>
     {% endif %}
 
     {% if result.extension_stats %}
-    <h2>Extensions</h2>
+    <h2>{{ _("Extensions") }}</h2>
     <div class="box">
       <table>
-        <thead><tr><th>Extension</th><th>Fichiers</th><th>Taille</th><th>%</th></tr></thead>
+        <thead><tr><th>{{ _("Extension") }}</th><th>{{ _("Fichiers") }}</th><th>{{ _("Taille") }}</th><th>%</th></tr></thead>
         <tbody>
           {% for ext in result.extension_stats %}
           <tr>
-            <td>{{ ext.extension or "(sans extension)" }}</td>
+            <td>{{ ext.extension or _("(sans extension)") }}</td>
             <td>{{ ext.files_count }}</td>
             <td>{{ ext.total_size | format_size }}</td>
             <td>{{ "%.1f"|format(ext.percentage_of_total) }}%</td>
@@ -177,10 +177,10 @@
     {% endif %}
 
     {% if result.top_files_by_size %}
-    <h2>Plus gros fichiers</h2>
+    <h2>{{ _("Plus gros fichiers") }}</h2>
     <div class="box">
       <table>
-        <thead><tr><th>Chemin</th><th>Taille</th></tr></thead>
+        <thead><tr><th>{{ _("Chemin") }}</th><th>{{ _("Taille") }}</th></tr></thead>
         <tbody>
           {% for file in result.top_files_by_size %}
           <tr><td>{{ file.path }}</td><td>{{ file.size | format_size }}</td></tr>
@@ -191,10 +191,10 @@
     {% endif %}
 
     {% if result.external_domains %}
-    <h2>Domaines externes lies ({{ result.external_domains|length }})</h2>
+    <h2>{{ _("Domaines externes liés ({external_domains})").format(external_domains=(result.external_domains|length)) }}</h2>
     <div class="box">
       <table>
-        <thead><tr><th>Domaine</th><th>Lien(s)</th></tr></thead>
+        <thead><tr><th>{{ _("Domaine") }}</th><th>{{ _("Lien(s)") }}</th></tr></thead>
         <tbody>
           {% for domain in result.external_domains[:20] %}
           <tr><td>{{ domain.domain }}</td><td>{{ domain.links_count }}</td></tr>
@@ -203,7 +203,7 @@
       </table>
       {% if result.external_domains|length > 20 %}
       <details class="nested">
-        <summary>Voir les {{ result.external_domains|length - 20 }} domaine(s) restant(s)</summary>
+        <summary>{{ _("Voir les {external_domains} domaine(s) restant(s)").format(external_domains=(result.external_domains|length - 20)) }}</summary>
         <table>
           <tbody>
             {% for domain in result.external_domains[20:] %}
@@ -217,16 +217,16 @@
     {% endif %}
 
     {% if tree_html %}
-    <h2>Arborescence ({{ scan.total_files }} fichier(s), {{ scan.total_dirs }} repertoire(s))</h2>
+    <h2>{{ _("Arborescence ({total_files} fichier(s), {total_dirs} répertoire(s))").format(total_files=scan.total_files, total_dirs=scan.total_dirs) }}</h2>
     <div class="box">{{ tree_html | safe }}</div>
     {% endif %}
 
     {% if result.broken_links %}
-    <h2>Liens casses</h2>
+    <h2>{{ _("Liens cassés") }}</h2>
     <details class="box">
-      <summary>Afficher les {{ result.broken_links|length }} lien(s) casse(s)</summary>
+      <summary>{{ _("Afficher les {broken_links} lien(s) cassé(s)").format(broken_links=(result.broken_links|length)) }}</summary>
       <table>
-        <thead><tr><th>URL</th><th>Trouve dans</th></tr></thead>
+        <thead><tr><th>URL</th><th>{{ _("Trouvé dans") }}</th></tr></thead>
         <tbody>
           {% for link in result.broken_links %}
           <tr><td>{{ link.url }}</td><td>{{ link.source_file }}</td></tr>
@@ -236,7 +236,7 @@
     </details>
     {% endif %}
 
-    <footer>Rapport genere par <strong>OMEGA-FOLD</strong></footer>
+    <footer>{{ _("Rapport généré par") }} <strong>OMEGA-FOLD</strong></footer>
   </div>
 </body>
 </html>

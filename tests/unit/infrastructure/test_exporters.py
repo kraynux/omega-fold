@@ -118,7 +118,7 @@ def test_export_html_wraps_broken_links_in_collapsed_details() -> None:
     etre repliee par defaut (`<details>` sans `open`), pas affichee en
     clair."""
     output = export_html(_result())
-    broken_links_summary_pos = output.index("Afficher les 1 lien(s) casse(s)")
+    broken_links_summary_pos = output.index("Afficher les 1 lien(s) cassé(s)")
     details_before_broken = output.rindex("<details", 0, broken_links_summary_pos)
     assert output[details_before_broken : details_before_broken + 20] == '<details class="box"'
 
@@ -133,7 +133,7 @@ def test_export_html_caps_external_domains_to_top_20_with_expandable_rest() -> N
     ]
     output = export_html(result)
 
-    assert "Domaines externes lies (25)" in output
+    assert "Domaines externes liés (25)" in output
     assert "site19.example" in output  # 20eme (index 19), encore visible directement
     assert "Voir les 5 domaine(s) restant(s)" in output
     # site24 (le dernier, 25eme) est bien present mais SEULEMENT dans la section repliee

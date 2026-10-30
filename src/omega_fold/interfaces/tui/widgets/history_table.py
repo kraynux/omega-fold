@@ -7,6 +7,7 @@ from textual.widgets import DataTable
 
 from omega_fold.domain.scans.models import Scan
 from omega_fold.domain.stats.formatting import format_size
+from omega_fold.shared.i18n import _
 
 
 class HistoryTable(DataTable[str]):
@@ -14,7 +15,7 @@ class HistoryTable(DataTable[str]):
 
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Cible", "Type", "Date", "Statut", "Taille", "Fichiers", "Liens")
+        self.add_columns(_("Cible"), _("Type"), _("Date"), _("Statut"), _("Taille"), _("Fichiers"), _("Liens"))
 
     def set_scans(self, scans: tuple[Scan, ...]) -> None:
         self.clear()

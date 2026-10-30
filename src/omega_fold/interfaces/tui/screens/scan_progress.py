@@ -36,6 +36,7 @@ from omega_fold.application.commands.run_scan import run_scan_distant, run_scan_
 from omega_fold.core.enums import ScanMode, ScanTargetType
 from omega_fold.interfaces.tui.screens.show_detail import ShowDetailScreen
 from omega_fold.interfaces.tui.widgets.progress_panel import ProgressPanel
+from omega_fold.shared.i18n import N_, _, log_message
 
 if TYPE_CHECKING:
     from textual.worker import Worker
@@ -52,7 +53,8 @@ class _RelayHandler(logging.Handler):
         self._callback = callback
 
     def emit(self, record: logging.LogRecord) -> None:
-        self._callback(record.getMessage())
+        # Plan i18n R2 : le fichier journal reste en francais, l'ecran retraduit la ligne.
+        self._callback(log_message(record.msg, record.args))
 
 
 class ScanProgressScreen(Screen[None]):
@@ -86,7 +88,7 @@ class ScanProgressScreen(Screen[None]):
         self._worker: Worker[None] | None = None
 
     def compose(self) -> ComposeResult:
-        yield ProgressPanel(message=f"Scan de {self._target} en cours...")
+        yield ProgressPanel(message=_("Scan de {target} en cours...").format(target=self._target))
 
     def on_mount(self) -> None:
         self._worker = self.run_worker(self._run_scan(), exclusive=True)
@@ -131,7 +133,7 @@ class ScanProgressScreen(Screen[None]):
             # ecran transitoire (voir widgets/progress_panel.py::mark_failed) — journalise
             # aussi la trace complete (pas seulement le message) pour un vrai diagnostic
             # a posteriori dans var/app.log, meme raisonnement que app.py::_handle_exception.
-            logging.getLogger("omega_fold").error("Scan echoue (%s)", self._target, exc_info=exc)
+            logging.getLogger("omega_fold").error(N_("Scan échoué (%s)"), self._target, exc_info=exc)
             self.query_one(ProgressPanel).mark_failed(str(exc) or type(exc).__name__)
             return
         finally:
@@ -157,7 +159,7 @@ class ScanProgressScreen(Screen[None]):
             # consequence, son resultat est simplement jete a son retour.
             if self._worker is not None:
                 self._worker.cancel()
-            self.app.notify("Scan annule.", title="Annulation")
+            self.app.notify(_("Scan annulé."), title=_("Annulation"))
             self.dismiss()
 
     def _on_log_record(self, message: str) -> None:
