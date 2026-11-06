@@ -7,8 +7,7 @@
 
 **사이트/디렉터리 구조 분석기 (로컬 및 원격)**
 
-> **Omega-server**를 위해 **kraynux**가 개발 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [Omega-Server](https://kraynux.snake-mackarel.ts.net)를 위해 [kraynux](https://github.com/kraynux)가 개발   
 
 공식 페이지: [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/) &nbsp; 스크린샷: [SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
 

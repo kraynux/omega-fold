@@ -7,8 +7,7 @@
 
 **站点/目录结构分析器（本地与远程）**
 
-> 由 **kraynux** 为 **Omega-server** 打造 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> 由 [kraynux](https://github.com/kraynux) 为 [Omega-Server](https://kraynux.snake-mackarel.ts.net) 打造   
 
 官方页面：[OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/) &nbsp; 截图：[SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
 

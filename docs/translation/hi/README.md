@@ -7,8 +7,7 @@
 
 **साइट/डायरेक्टरी संरचना विश्लेषक (लोकल और रिमोट)**
 
-> **Omega-server** के लिए **kraynux** द्वारा निर्मित 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [Omega-Server](https://kraynux.snake-mackarel.ts.net) के लिए [kraynux](https://github.com/kraynux) द्वारा निर्मित   
 
 आधिकारिक पेज: [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/) &nbsp; स्क्रीनशॉट: [SCREENSHOTS](https://kraynux.snake-mackarel.ts.net/omega-fold/screenshots/)  
 
