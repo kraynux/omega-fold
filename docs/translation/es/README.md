@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 kraynux - kraynux@proton.me - Licencia MIT (ver el archivo LICENSE) -->
 <div align="center">
-  <img src="../../assets/omega-fold.png" alt="Omega-Fold" width="384">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-fold.png" alt="Omega-Fold" width="512">
 </div>
 
 #  OMEGA-FOLD
