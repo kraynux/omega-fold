@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fold/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fold"
@@ -80,35 +80,35 @@ msgstr "could not save the result for scan {scan_id!r}"
 msgid " OMEGA-FOLD"
 msgstr " OMEGA-FOLD"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:32
 msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
 msgstr "Enter a target (local directory or URL), the type (local/remote), the mode (static or dynamic) and, for a remote scan, the crawl safeguards (max depth, number of pages, delay between requests, User-Agent, robots.txt compliance)."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:41
 msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
 msgstr "Lists all past scans: full details (tree, families, broken links), or replay a scan on the same target (a replayed remote scan uses the default safeguards, not those of the original scan — not saved)."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:49
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
 msgstr "From a scan's details: JSON (complete structure), text (compact report) or HTML (visual report with a histogram per family, export theme independent of the interface theme)."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:57
 msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
 msgstr "Omega-fold analyzes a local directory or crawls a remote site under always-on safeguards (depth, number of pages, delay, same domain): an external link is checked over HTTP only in dynamic mode, an internal link is always checked against the files/pages actually found, never by assumption."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:85
 msgid "Familles de fichiers"
 msgstr "File families"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
 msgid "Famille"
 msgstr "Family"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:101
 msgid "(le reste)"
 msgstr "(the rest)"
 

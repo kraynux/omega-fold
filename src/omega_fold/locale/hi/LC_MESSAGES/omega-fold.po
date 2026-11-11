@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fold/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fold"
@@ -80,35 +80,35 @@ msgstr "स्कैन {scan_id!r} के लिए परिणाम सह�
 msgid " OMEGA-FOLD"
 msgstr " OMEGA-FOLD"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:32
 msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
 msgstr "एक लक्ष्य (स्थानीय डायरेक्टरी या URL), प्रकार (स्थानीय/दूरस्थ), मोड (स्थिर या गतिशील) दर्ज करें, और दूरस्थ स्कैन के लिए क्रॉल की सुरक्षा सीमाएँ (अधिकतम गहराई, पेजों की संख्या, अनुरोधों के बीच अंतराल, User-Agent, robots.txt का पालन)।"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:41
 msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
 msgstr "सभी पिछले स्कैन की सूची: पूर्ण विवरण (ट्री, फ़ाइल-परिवार, टूटे लिंक), या उसी लक्ष्य पर स्कैन फिर से चलाना (दोबारा चलाया गया दूरस्थ स्कैन डिफ़ॉल्ट सुरक्षा सीमाएँ उपयोग करता है, मूल स्कैन की नहीं — वे सहेजी नहीं जातीं)।"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:49
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
 msgstr "स्कैन के विवरण से: JSON (पूर्ण संरचना), टेक्स्ट (संक्षिप्त रिपोर्ट) या HTML (परिवार के अनुसार हिस्टोग्राम वाली दृश्य रिपोर्ट, निर्यात थीम इंटरफ़ेस थीम से स्वतंत्र)।"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:57
 msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
 msgstr "Omega-fold हमेशा चालू सुरक्षा सीमाओं (गहराई, पेजों की संख्या, अंतराल, वही डोमेन) के तहत किसी स्थानीय डायरेक्टरी का विश्लेषण करता है या दूरस्थ साइट को क्रॉल करता है: बाहरी लिंक केवल गतिशील मोड में HTTP से जाँचा जाता है, आंतरिक लिंक हमेशा वास्तव में मिली फ़ाइलों/पेजों से जाँचा जाता है, कभी अनुमान से नहीं।"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:85
 msgid "Familles de fichiers"
 msgstr "फ़ाइल-परिवार"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
 msgid "Famille"
 msgstr "परिवार"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:101
 msgid "(le reste)"
 msgstr "(बाकी)"
 

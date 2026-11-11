@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "omega-fold"
-version = "1.5.0"
+version = "1.6.0"
 description = "Analyseur de structure de site/repertoire (local et distant), omega-fold"
 readme = "README.md"
 license = { file = "LICENSE" }

@@ -24,6 +24,13 @@ Officiële pagina: [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold
 
 **Omega-fold** is een TUI- en CLI-tool die de structuur van een lokale map of van een externe site analyseert (HTTP-crawl begrensd door veiligheidsgrenzen): volledige boomstructuur, statistieken per extensie/bestandsfamilie, overzicht van links (intern/extern, alle soorten), opsporing van kapotte links. Tool van de suite `omega-`, opgebouwd volgens Clean Architecture — zie `docs/ARCHITECTURE.md` voor alle technische details.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-fold/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-fold/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-fold/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-fold/D.png" width="24%" />
+</p>
+
 ## 1. Visie en reikwijdte
 
 ### Wat Omega-fold doet
@@ -108,6 +115,10 @@ Verloop: startscherm (sluit met een toets of een klik) → hoofdmenu (Scannen / 
 ### Talen van de interface
 
 De interface is beschikbaar in 17 talen: Frans, Engels, Spaans, Portugees (Brazilië), Italiaans, Duits, Nederlands, Pools, Russisch, vereenvoudigd Chinees, Vietnamees, Thai, Indonesisch, Japans, Koreaans, Hindi en Arabisch. De keuze gebeurt in de Instellingen („Langue / Language”) en geldt na een herstart van de interface; de variabele `OMEGA_FOLD_LANG` (bijvoorbeeld `OMEGA_FOLD_LANG=nl ./omega-fold.sh`) legt voor één sessie een taal op. Gestart vanuit omega-suite neemt omega-fold de taal van de suite over. Op een Linux-tekstconsole (TTY) worden talen met een niet-Latijns schrift voor die sessie in het Engels getoond. De opdrachtregel blijft in het Frans.
+
+### Contact en ondersteuning
+
+De hulp (toets `a`) biedt een scherm **Contact en ondersteuning**: *Trakteer op een koffie* (PayPal-pagina van de ontwikkelaar), *Contact opnemen met ondersteuning* (e-mailadres en contactformulier van de site, leesbaar weergegeven), *Mij aanmelden als gebruiker (anoniem)* en *Updates controleren*. De aanmelding is vrijwillig, standaard uitgeschakeld en wordt maar één keer verzonden: ze dient alleen om de gebruikers te tellen en, als u dat wilt, hun continent of land (gesloten lijsten, nooit vrije tekst). Ze verzendt een willekeurig gekozen sleutel, de naam van de software (`omega-fold`) en de versie; nooit een naam, een machinenaam, een instelling, een doel of een resultaat. Het IP-adres wordt niet opgeslagen in de aanmeldingen, maar gaat, zoals bij elk bezoek, door de beveiligingscontroles en het logboek van de ontvangende server. Intrekken kan op elk moment vanuit hetzelfde scherm (*Mij niet meer aanmelden*). De updatecontrole leest alleen de lijst van versies die op de site gepubliceerd zijn, en nooit zonder klik.
 
 ### Scriptbare modus (CLI)
 

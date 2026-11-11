@@ -197,35 +197,35 @@ msgstr ""
 msgid " OMEGA-FOLD"
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:32
 msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:41
 msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:49
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:57
 msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:85
 msgid "Familles de fichiers"
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
 msgid "Extensions"
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
 msgid "Famille"
 msgstr ""
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:101
 msgid "(le reste)"
 msgstr ""
 

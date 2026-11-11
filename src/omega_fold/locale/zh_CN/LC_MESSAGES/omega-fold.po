@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fold/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fold"
@@ -80,35 +80,35 @@ msgstr "保存扫描 {scan_id!r} 的结果失败"
 msgid " OMEGA-FOLD"
 msgstr " OMEGA-FOLD"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:32
 msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
 msgstr "输入目标（本地目录或 URL）、类型（本地/远程）、模式（静态或动态），对于远程扫描还需输入爬取防护限制（最大深度、页数、请求间隔、User-Agent、是否遵守 robots.txt）。"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:41
 msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
 msgstr "列出所有历史扫描：完整详情（目录树、类别、失效链接），或对同一目标重放扫描（重放的远程扫描使用默认防护限制，而非原扫描的设置——这些设置不会保存）。"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:49
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
 msgstr "在扫描详情中：JSON（完整结构）、文本（简洁报告）或 HTML（带按类别直方图的可视化报告，导出主题独立于界面主题）。"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:57
 msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
 msgstr "Omega-fold 在始终启用的防护限制下（深度、页数、间隔、同一域名）分析本地目录或爬取远程站点：外部链接仅在动态模式下通过 HTTP 验证，内部链接始终根据实际找到的文件/页面验证，绝不靠猜测。"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:85
 msgid "Familles de fichiers"
 msgstr "文件类别"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
 msgid "Extensions"
 msgstr "扩展名"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
 msgid "Famille"
 msgstr "类别"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:101
 msgid "(le reste)"
 msgstr "（其余）"
 

@@ -24,6 +24,13 @@ Página oficial: [OMEGA-FOLD](https://kraynux.snake-mackarel.ts.net/omega-fold/)
 
 **Omega-fold** é uma ferramenta TUI + CLI que analisa a estrutura de um diretório local ou de um site remoto (rastreamento HTTP limitado por salvaguardas): árvore completa, estatísticas por extensão/família de arquivo, mapa de links (internos/externos, de todos os tipos), detecção de links quebrados. Ferramenta da suíte `omega-`, estruturada em Clean Architecture — veja `docs/ARCHITECTURE.md` para todos os detalhes técnicos.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pt-BR/omega-fold/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pt-BR/omega-fold/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pt-BR/omega-fold/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pt-BR/omega-fold/D.png" width="24%" />
+</p>
+
 ## 1. Visão e escopo
 
 ### O que o Omega-fold faz
@@ -108,6 +115,10 @@ Percurso: tela de abertura (fecha com uma tecla ou um clique) → menu principal
 ### Idiomas da interface
 
 A interface está disponível em 17 idiomas: francês, inglês, espanhol, português (Brasil), italiano, alemão, holandês, polonês, russo, chinês simplificado, vietnamita, tailandês, indonésio, japonês, coreano, hindi e árabe. A escolha é feita em Configurações («Langue / Language») e vale após reiniciar a interface; a variável `OMEGA_FOLD_LANG` (por exemplo `OMEGA_FOLD_LANG=pt-BR ./omega-fold.sh`) força um idioma durante uma sessão. Iniciado pelo omega-suite, o omega-fold usa o idioma da suíte. Em um console de texto Linux (TTY), os idiomas de escrita não latina aparecem em inglês durante a sessão. A linha de comando continua em francês.
+
+### Contato e suporte
+
+A ajuda (tecla `a`) oferece uma tela **Contato e suporte**: *Pagar um café* (página PayPal do desenvolvedor), *Contatar o suporte* (endereço de e-mail e formulário de contato do site, exibidos em claro), *Declarar-me usuário (anônimo)* e *Verificar atualizações*. A declaração é voluntária, desativada por padrão e enviada uma única vez: serve apenas para contar os usuários e, se desejado, seu continente ou país (listas fechadas, nunca texto livre). Ela envia uma chave sorteada ao acaso, o nome do software (`omega-fold`) e sua versão; nunca um nome, um nome de máquina, uma configuração, um alvo ou um resultado. O endereço IP não é registrado nas declarações, mas, como em qualquer visita, passa pelos controles de segurança e pelo registro do servidor de recepção. Retirada a qualquer momento na mesma tela (*Não me declarar mais*). A verificação de atualizações apenas lê a lista de versões publicadas no site, e nunca sem um clique.
 
 ### Modo scriptável (CLI)
 

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fold/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fold"
@@ -80,35 +80,35 @@ msgstr "스캔 {scan_id!r}의 결과 저장 실패"
 msgid " OMEGA-FOLD"
 msgstr " OMEGA-FOLD"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:31
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:32
 msgid "Saisir une cible (répertoire local ou URL), le type (local/distant), le mode (statique ou dynamique) et, pour un scan distant, les garde-fous de crawl (profondeur max, nombre de pages, délai entre requêtes, User-Agent, respect de robots.txt)."
 msgstr "대상(로컬 디렉터리 또는 URL), 유형(로컬/원격), 모드(정적 또는 동적)를 입력하고, 원격 스캔이라면 크롤링 안전장치(최대 깊이, 페이지 수, 요청 간 지연, User-Agent, robots.txt 준수)도 입력하세요."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:40
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:41
 msgid "Liste tous les scans passés : détail complet (arborescence, familles, liens cassés), ou rejouer un scan sur la même cible (un scan distant rejoué utilise les garde-fous par défaut, pas ceux du scan original — non persistés)."
 msgstr "지난 모든 스캔 목록: 전체 상세(트리, 파일 계열, 깨진 링크), 또는 같은 대상에서 스캔 다시 실행(다시 실행하는 원격 스캔은 원래 스캔이 아닌 기본 안전장치를 사용합니다 — 저장되지 않기 때문)."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:48
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:49
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec histogramme par famille, thème d'export indépendant du thème de l'interface)."
 msgstr "스캔 상세에서: JSON(전체 구조), 텍스트(간결한 보고서), HTML(계열별 히스토그램이 포함된 시각적 보고서, 내보내기 테마는 인터페이스 테마와 별개)."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:56
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:57
 msgid "Omega-fold analyse un répertoire local ou crawle un site distant sous des garde-fous toujours actifs (profondeur, nombre de pages, délai, même domaine) : un lien externe n'est vérifié par HTTP qu'en mode dynamique, un lien interne est toujours vérifié contre les fichiers/pages réellement trouvés, jamais par supposition."
 msgstr "Omega-fold는 항상 켜져 있는 안전장치(깊이, 페이지 수, 지연, 같은 도메인) 아래에서 로컬 디렉터리를 분석하거나 원격 사이트를 크롤링합니다: 외부 링크는 동적 모드에서만 HTTP로 검증하고, 내부 링크는 항상 실제로 찾은 파일/페이지와 대조해 검증하며, 추측으로 판단하지 않습니다."
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:78
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:85
 msgid "Familles de fichiers"
 msgstr "파일 계열"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/infrastructure/exporters/templates/scan_report.html.j2:161
 msgid "Extensions"
 msgstr "확장자"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:88 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:99 src/omega_fold/interfaces/tui/widgets/family_stats_table.py:15
 msgid "Famille"
 msgstr "계열"
 
-#: src/omega_fold/interfaces/tui/screens/help_screen.py:90
+#: src/omega_fold/interfaces/tui/screens/help_screen.py:101
 msgid "(le reste)"
 msgstr "(나머지)"
 

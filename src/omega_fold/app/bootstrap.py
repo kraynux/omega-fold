@@ -6,6 +6,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from omega_lib.infrastructure.declaration import build_contact_support
+from omega_lib.infrastructure.declaration.app_version import project_version
 from omega_lib.infrastructure.terminal.detector import SystemTerminalDetector
 from omega_lib.shared.clock import utc_now
 from omega_lib.shared.ids import new_id
@@ -22,6 +24,11 @@ from omega_fold.infrastructure.storage.files.json_settings_store import JsonSett
 from omega_fold.infrastructure.storage.sqlite.connection import open_connection
 from omega_fold.infrastructure.storage.sqlite.scan_repository import SqliteScanRepository
 
+SOFTWARE = "omega-fold"
+"""Nom du logiciel pour la reception des declarations et le site (download/)."""
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+"""Racine du projet : pyproject.toml, seule source de la version."""
+
 
 def bootstrap(*, var_dir: Path | None = None, console_logging: bool = True) -> DependencyContainer:
     """`console_logging=False` pour le TUI : Textual prend le controle
@@ -35,6 +42,7 @@ def bootstrap(*, var_dir: Path | None = None, console_logging: bool = True) -> D
     screenshots_dir = paths.default_screenshots_dir(base)
 
     return DependencyContainer(
+        contact_support=build_contact_support(SOFTWARE, project_version(PROJECT_ROOT, SOFTWARE), base),
         local_fs_reader=LocalFsWalker(),
         html_link_extractor=Bs4LinkExtractor(),
         distant_crawler=AiohttpCrawler(),
