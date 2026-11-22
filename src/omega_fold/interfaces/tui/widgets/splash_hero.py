@@ -28,6 +28,28 @@ from __future__ import annotations
 
 from textual.widgets import Static
 
+_DRAWN_VERSION = "V1.50"
+"""Version qui etait dessinee a la main dans le logo : remplacee a l'affichage par celle de pyproject.toml."""
+
+
+def app_version() -> str:
+    """Version de pyproject.toml, seule source (procedure de verification de l'auteur, etape B, 2026-11-22) :
+    splash, barre de titre et « Contact et support » affichent le meme numero."""
+    from pathlib import Path
+
+    from omega_lib.infrastructure.declaration.app_version import project_version
+
+    return project_version(Path(__file__).resolve().parents[5], "omega-fold")
+
+
+def drawn_version(version: str) -> str:
+    """Meme forme et meme largeur que la version dessinee (« V1.50 ») : « V1.60 » pour 1.6.0."""
+    parts = version.split(".")
+    if len(parts) >= 2 and all(part.isdigit() for part in parts[:3]):
+        patch = parts[2] if len(parts) > 2 else "0"
+        return f"V{parts[0]}.{parts[1]}{patch}"
+    return "V" + version
+
 _RAW_LINES: tuple[str, ...] = (
     '                          ┌────────────────────────┐',
     '                          │  LINUX FOLDER ANALYSE  │',
@@ -131,4 +153,4 @@ class SplashHero(Static):
     """Composition ASCII centrale de screens/splash.py."""
 
     def __init__(self) -> None:
-        super().__init__(_MARKUP, classes="omega-splash-hero")
+        super().__init__(_MARKUP.replace(_DRAWN_VERSION, drawn_version(app_version())), classes="omega-splash-hero")

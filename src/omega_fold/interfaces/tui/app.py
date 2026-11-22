@@ -28,6 +28,7 @@ from omega_fold.interfaces.tui.screens.home import HomeScreen
 from omega_fold.interfaces.tui.screens.quit_confirm import QuitConfirmScreen
 from omega_fold.interfaces.tui.screens.splash import SplashScreen
 from omega_fold.interfaces.tui.screens.terminal_warning import TerminalWarningScreen
+from omega_fold.interfaces.tui.widgets.splash_hero import app_version
 from omega_fold.shared.i18n import _
 
 if TYPE_CHECKING:
@@ -55,7 +56,7 @@ class OmegaFoldApp(App[None]):
     """Application TUI d'omega-fold : resout theme/profil de rendu au
     demarrage, puis enchaine splash -> (avertissement terminal) -> accueil."""
 
-    TITLE = TITLE
+    TITLE = f"{TITLE} {app_version()}"  # version de pyproject.toml (etape B, 2026-11-22)
     BINDINGS: ClassVar[list[BindingType]] = [
         Binding("q", "quit", _("Quitter"), show=True),
         Binding("ctrl+q", "quit", _("Quitter"), show=False),
